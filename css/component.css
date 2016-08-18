@@ -20,7 +20,7 @@ body {
 }
 
 .slider {
-	position: relative;
+	
 	z-index: 0;
 	width: 100%;
 	margin: 0 auto;
@@ -35,20 +35,19 @@ body {
 	overflow: hidden;
 
 }
-
-
 .sliding{
 	width: 500%;
-	height: 100%;
 }
+
 .slides {
 	position: absolute;
 	top: 0;
 	visibility: hidden;
-	width: 20%;
+	width: 100%;
 	opacity: 0;
 	float: left;
 }
+
 
 
 .slide--current {

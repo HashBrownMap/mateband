@@ -309,6 +309,38 @@
 		scrollContainer.scrollLeft = xscroll;
 	}
 
+		var controller = new ScrollMagic.Controller();
+
+		// define movement of panels
+		var wipeAnimation = new TimelineMax()
+			// animate to second panel
+			.to(".slider", 1,   {"x":0,"y":0,"cp":[{"x":0.2,"y":1}]},{"x":1,"y":1,"cp":[{"x":0.3,"y":1}]})
+			.call(navigate, ["right"])
+			.call(navigate,  ["right"])
+			.call(navigate,  ["right"])
+			.call(navigate,  ["right"]);			// move back in 3D space
+				// move in to first panel
+			//.to(".slider", 0.5, {z: 0})				// move back to origin in 3D space
+			// animate to third panel
+			//.to(".slider", 0.5, {z: -150, delay: 1})
+			//.to(".slider", 1,   {x: "-50%"})
+			//.to(".slider", 0.5, {z: 0})
+			/// animate to forth panel
+			///.to(".slider", 0.5, {z: -150, delay: 1})
+			///.to(".slider", 1,   {x: "-75%"})
+			//.to(".slider", 0.5, {z: 0});
+
+		// create scene to pin and link animation
+		new ScrollMagic.Scene({
+				triggerElement: ".slider",
+				triggerHook: "onLeave",
+				duration: "500%"
+			})
+			.setPin(".slider")
+			.setTween(wipeAnimation)
+			.addIndicators() // add indicators (requires plugin)
+			.addTo(controller);
+
 	init();
 
 
