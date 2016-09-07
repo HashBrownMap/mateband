@@ -39,7 +39,7 @@
 		lockScroll = false, xscroll, yscroll,
 		scrollContainer = document.querySelector('.container'),
 		// the main slider and its items
-		sliderEl = document.querySelector('.slider'),
+		sliderEl = document.querySelector('.sliding'),
 		items = [].slice.call(sliderEl.querySelectorAll('.slide')),
 		// total number of items
 		itemsTotal = items.length,
@@ -85,13 +85,18 @@
 
 
 		document.getElementById("one").addEventListener('click', function() {
+			current = 0;
 			openItem(items[0]);
 		});
 		document.getElementById("two").addEventListener('click', function() {
+			current = 1;
 			openItem(items[1]);
+			
 		});
 		document.getElementById("three").addEventListener('click', function() {
+			current = 2;
 			openItem(items[2]);
+			
 		});
 		// close content
 		closeContentCtrl.addEventListener('click', closeContent);
@@ -137,7 +142,7 @@
 		classie.add(zoomer, 'zoomer--active');
 		// disallow scroll
 		
-		scrollContainer.addEventListener('scroll', noscroll);
+		/*scrollContainer.addEventListener('scroll', noscroll);*/
 		// apply transforms
 		applyTransforms(zoomer);
 		// also scale the body so it looks the camera moves to the item.
@@ -158,7 +163,7 @@
 			// no scrolling
 			classie.add(bodyEl, 'noscroll');
 			classie.add(contentEl, 'content--open');
-			var contentItem = document.getElementById(item.getAttribute('data-content'))
+			var contentItem = document.getElementById(item.getAttribute('data-content'));
 			classie.add(contentItem, 'content__item--current');
 			classie.add(contentItem, 'content__item--reset');
 
@@ -196,7 +201,7 @@
 			
 			// reset scrolling permission
 			lockScroll = false;
-			scrollContainer.removeEventListener('scroll', noscroll);
+			
 
 			/* fix for safari flickering */
 			zoomer.style.WebkitTransform = 'translate3d(0,0,0) scale3d(1,1,1)';
