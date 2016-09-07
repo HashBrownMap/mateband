@@ -37,10 +37,10 @@
 		win = {width: window.innerWidth, height: window.innerHeight},
 		// some helper vars to disallow scrolling
 		lockScroll = false, xscroll, yscroll,
-		scrollContainer = document.querySelector('#section2'),
+		scrollContainer = document.querySelector('.container'),
 		// the main slider and its items
 		sliderEl = document.querySelector('.slider'),
-		items = [].slice.call(sliderEl.querySelectorAll('.slides')),
+		items = [].slice.call(sliderEl.querySelectorAll('.slide')),
 		// total number of items
 		itemsTotal = items.length,
 		// navigation controls/arrows
@@ -82,16 +82,21 @@
 	// event binding
 	function initEvents() {
 		// open items
-		zoomCtrl.addEventListener('click', function() {
-			openItem(items[current]);
-		});
 
+
+		document.getElementById("one").addEventListener('click', function() {
+			openItem(items[0]);
+		});
+		document.getElementById("two").addEventListener('click', function() {
+			openItem(items[1]);
+		});
+		document.getElementById("three").addEventListener('click', function() {
+			openItem(items[2]);
+		});
 		// close content
 		closeContentCtrl.addEventListener('click', closeContent);
 
 		// navigation
-		navRightCtrl.addEventListener('click', function() { navigate('right'); });
-		navLeftCtrl.addEventListener('click', function() { navigate('left'); });
 
 		// window resize
 		window.addEventListener('resize', throttle(function(ev) {
