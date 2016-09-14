@@ -1,19 +1,24 @@
 @font-face {
-font-family:Ailerons;
-src: url("../fonts/Ailerons-Typeface.otf") format("opentype");
+font-family:Pier Sans;
+src: url("../fonts/pier.otf") format("opentype");
 }
 
 body{
-    font-family: Ailerons, sans-serif;
-    color: rgb(210, 196, 167);
+    font-family: Pier Sans, sans-serif;
+    color: #D73A31;
     text-align: center;
+    background-color: transparent;
 } 
 
 #section0{
-  
-    color: rgb(210, 196, 167);
+background-color: transparent;
+    color: #D73A31;
     font-size: 6em;
     padding-bottom: 3rem;
+}
+
+#section0 h1{
+    font-weight: 700;
 }
 
 #section0 h2{
@@ -23,7 +28,7 @@ body{
 
 #section1{
  
-    color: rgb(210, 196, 167);
+    color: #D73A31;
 }
 
 #section1 h1{
@@ -31,28 +36,49 @@ body{
     padding-bottom: 4rem;
 }
 
+.column img{
+    display: block;
+    position: relative; 
+    width: 100%;
+    height: 100%;
+}
+
 #section1 p{
+   
     line-height: 1.66em;
-    font-size: 200%;
+  
     color: white;
+}
+
+.text{
+    text-align: left;
+    vertical-align: baseline;
+    padding-top: 5em;
+    margin-left: 10em;
 }
 
 #section2 h1{
-    
-    font-size: 3em;
-	padding-bottom: 5rem;
+    color: white;
+	font-size: 240%;
 }
 #section2 h2{
     color: white;
-	font-size: 2em;
+font-size: 240%;
+    
+    padding-top: 1em;
 }
 
-
-#section2 span{
-    color: rgb(210, 196, 167);
-    font-size: 50%;
+#section2 h3{
+    color: #D73A31;
+    
+    padding-top: 1em;
+    padding-right: 10em;
+    font-size: 140%;
 }
 
+#section2 img{
+    padding-right:  20em;
+}
 
 
 #section3 h1{
@@ -128,7 +154,7 @@ a {
     width: 9px !important;
     left: 50% !important;
     top: 50% !important;
-    background: rgb(210, 196, 167) !important;
+    background: #D73A31 !important;
     margin: -2px 0px 0px -2px !important;
 }
 #fp-nav ul li a span, .fp-slidesNav ul li a span {
