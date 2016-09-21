@@ -5,14 +5,14 @@ src: url("../fonts/pier.otf") format("opentype");
 
 body{
     font-family: Pier Sans, sans-serif;
-    color: #D73A31;
+    color: #193446;
     text-align: center;
     background-color: transparent;
 } 
 
 #section0{
 background-color: transparent;
-    color: #D73A31;
+    color: #193446;
     font-size: 6em;
     padding-bottom: 3rem;
 }
@@ -28,7 +28,7 @@ background-color: transparent;
 
 #section1{
  
-    color: #D73A31;
+    color: #193446;
 }
 
 #section1 h1{
@@ -58,21 +58,22 @@ background-color: transparent;
 }
 
 #section2 h1{
-    color: white;
-	font-size: 240%;
+    
+	font-size: 3em;
+    padding-bottom: 2em;
 }
 #section2 h2{
     color: white;
 font-size: 240%;
     
-    padding-top: 1em;
+    padding-top: 0.3em;
 }
 
 #section2 h3{
-    color: #D73A31;
+    color: #193446;
     
     padding-top: 1em;
-    padding-right: 10em;
+    margin-right: 8em;
     font-size: 140%;
 }
 
@@ -154,7 +155,7 @@ a {
     width: 9px !important;
     left: 50% !important;
     top: 50% !important;
-    background: #D73A31 !important;
+    background: #193446 !important;
     margin: -2px 0px 0px -2px !important;
 }
 #fp-nav ul li a span, .fp-slidesNav ul li a span {
