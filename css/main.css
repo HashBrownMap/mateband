@@ -76,14 +76,14 @@ background-color: transparent;
     padding-bottom: 2em;
 }
 #section2 h2{
-    color: white;
+    
 font-size: 240%;
     
     padding-top: 0.3em;
 }
 
 #section2 h3{
-    color: #193446;
+    color: #464646;
     
     padding-top: 1em;
     margin-right: 8em;
@@ -100,8 +100,8 @@ font-size: 240%;
    
     z-index: -5;
     font-weight: bold;
-    font-size: 24em;
-    color: #e6e6e6;
+    font-size: 21em;
+    color: #f5f5f5;
    overflow: hidden;
     padding: 0;
     padding-left: 0.3em;
@@ -174,7 +174,7 @@ element.style {
     text-decoration: none !important;
 }
 a {
-    color: #FFF;
+    color: #193446;
     text-decoration: none !important;
     -webkit-tap-highlight-color: rgba(0,0,0,0) !important;
 }
@@ -184,7 +184,7 @@ a {
     width: 13px !important; 
     transform: rotate(-45deg) !important;
     margin: -4px 0px 0px -4px !important;
-    background: rgb(255, 255, 255) !important;
+    background: #193446 !important;
 }
 
 #fp-nav ul li:hover a span {
@@ -216,7 +216,7 @@ a {
     text-decoration: none !important;
 }
 a {
-    color: #FFF;
+    color: #193446;
     text-decoration: none !important;
     -webkit-tap-highlight-color: rgba(0,0,0,0) !important;
 }
