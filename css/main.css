@@ -21,6 +21,8 @@ background-color: transparent;
     font-weight: 700;
 }
 
+
+
 #section0 h2{
     padding-top: 1rem;
     font-size: 50%;
@@ -50,11 +52,22 @@ background-color: transparent;
     color: white;
 }
 
+#section2{
+ z-index: 1;
+}
+
+.row{
+    z-index: 10;
+}
+
+
+
 .text{
     text-align: left;
     vertical-align: baseline;
     padding-top: 5em;
     margin-left: 10em;
+    z-index: 10;
 }
 
 #section2 h1{
@@ -79,17 +92,47 @@ font-size: 240%;
 
 #section2 img{
     padding-right:  20em;
+    z-index: 8;
 }
 
 
+.bg-text {
+   
+    z-index: -5;
+    font-weight: bold;
+    font-size: 24em;
+    color: #e6e6e6;
+   overflow: hidden;
+    padding: 0;
+    padding-left: 0.3em;
+    margin: 0;
+    bottom: 220px;
+    left:0;
+    position: absolute;
+    letter-spacing: 2px;
+    
+    
+}
+
+
+#section3{
+ z-index: 1;
+}
 #section3 h1{
     font-size: 3em;
     padding-bottom: 12em;
 }
 
+#section4{
+ z-index: 1;
+}
 #section4 h1{
     font-size: 3em;
     padding-bottom: 12em;
+}
+
+#section5{
+ z-index: 1;
 }
 #section5 h1{
     font-size: 3em;
