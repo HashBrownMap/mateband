@@ -451,7 +451,7 @@ body {
 }
 
 .grid__item {
-	width: 480px;
+	width: 415px;
 	
 }
 
@@ -783,7 +783,7 @@ body {
 	color: transparent;
 }
 
-@media screen and (min-width:1700px) {
+@media screen and (min-width:1600px) {
 	.grid__item {
 		width: 550px !important;		
 	}
