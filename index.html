@@ -7,11 +7,9 @@
     <title>Mate Band</title>
     <link rel="stylesheet" href="css/reset.css">
      <link rel="stylesheet" href="css/pills.min.css">
-    
 	<link rel="stylesheet" type="text/css" href="css/component.css" />
 	<link rel="stylesheet" href="css/main.css">
 	<link rel="stylesheet" type="text/css" href="css/jquery.fullPage.css" />
-	<link rel="stylesheet" type="text/css" href="css/set2.css" />
 	<link rel="stylesheet" type="text/css" href="fonts/font-awesome-4.3.0/css/font-awesome.min.css" />
 	<link rel="stylesheet" type="text/css" href="fonts/feather/style.css">
     
@@ -47,16 +45,27 @@
 	<ul >
 		<li><a href="#firstPage" class=""><span></span></a><div class="fp-tooltip right">Home</div></li>
 		<li><a href="#secondPage" class=""><span></span></a><div class="fp-tooltip right">Use Case</div></li>
-		<li><a href="#3rdPage" class=""><span></span></a><div class="fp-tooltip right">Solution</div></li>
-		<li><a href="#4thpage" class=""><span></span></a><div class="fp-tooltip right">Additional</div></li>
-		<li><a href="#5thpage" class=""><span></span></a><div class="fp-tooltip right">About</div></li> 
-		<li><a href="#lastPage" class=""><span></span></a><div class="fp-tooltip right">Contact</div></li>
+		<li><a href="#3rdPage" class=""><span></span></a><div class="fp-tooltip right">Concept</div></li>
+		<li><a href="#4thPage" class=""><span></span></a><div class="fp-tooltip right">Solution</div></li>
+		<li><a href="#5thpage" class=""><span></span></a><div class="fp-tooltip right">Additional</div></li>
+		<li><a href="#6thpage" class=""><span></span></a><div class="fp-tooltip right">About</div></li> 
+		<li><a href="#lastpage" class=""><span></span></a><div class="fp-tooltip right">Contact</div></li>
 		</ul>
 	</div>
 
 
 <div id="fullpage">
-		<!--<script>
+	
+	<div class="section active" id="section0">
+
+		<div class="title">
+			<span>
+				<h1>mateband</h1>
+				<h2>Safe, Together</h2>
+			</span>
+		</div>
+		</div>
+			<script>
 
 			var container, stats;
 			var camera, scene, renderer, particle;
@@ -70,19 +79,22 @@
 
 			function init() {
 
-				container = document.createElement( 'div' );
-				container.className += "section";
+				container = document.getElementById( 'section0' );
+			/*	container.className += "section";
 				container.className += " active";
 				container.id = "section0";
+				var box = document.createElement("div");
+				box.className += "container";
 				var header = document.createElement("h1");
-				var title = document.createTextNode("MATEBAND");
+				var title = document.createTextNode("mateband");
 				header.appendChild(title);
 				var subheader = document.createElement("h2");
 				var text = document.createTextNode("Safe, Together");
 				subheader.appendChild(text);
-				container.appendChild(header);
-				container.appendChild(subheader);
-				document.getElementById("fullpage").appendChild( container );
+				box.appendChild(header);
+				box.appendChild(subheader);
+				container.appendChild(box);*/
+				
 
 				camera = new THREE.PerspectiveCamera( 75, window.innerWidth / window.innerHeight, 1, 5000 );
 				camera.position.z = 1000;
@@ -98,21 +110,20 @@
 
 					particle = new THREE.Sprite( material );
 
-					initParticle( particle, i * 10 );
+					initParticle( particle, i * 8);
 
 					scene.add( particle );
 				}
 
 				renderer = new THREE.CanvasRenderer();
-				renderer.setClearColor( 0x000040 );
+				renderer.setClearColor( 0x000000);
 				renderer.setPixelRatio( window.devicePixelRatio );
 				renderer.setSize( window.innerWidth, window.innerHeight );
 				container.appendChild( renderer.domElement );
 
-				stats = new Stats();
-				container.appendChild( stats.dom );
+			
 
-				document.addEventListener( 'mousemove', onDocumentMouseMove, false );
+				
 				document.addEventListener( 'touchstart', onDocumentTouchStart, false );
 				document.addEventListener( 'touchmove', onDocumentTouchMove, false );
 
@@ -142,9 +153,9 @@
 
 				var context = canvas.getContext( '2d' );
 				var gradient = context.createRadialGradient( canvas.width / 2, canvas.height / 2, 0, canvas.width / 2, canvas.height / 2, canvas.width / 2 );
-				gradient.addColorStop( 0, 'rgba(255,255,255,1)' );
-				gradient.addColorStop( 0.2, 'rgba(0,255,255,1)' );
-				gradient.addColorStop( 0.4, 'rgba(0,0,64,1)' );
+				gradient.addColorStop( 0, 'rgba(0,255,255,1)' );
+				gradient.addColorStop( 0.7, 'rgba(0,2,25,1)' );
+				gradient.addColorStop( 0.8, 'rgba(0,0,64,1)' );
 				gradient.addColorStop( 1, 'rgba(0,0,0,1)' );
 
 				context.fillStyle = gradient;
@@ -192,8 +203,7 @@
 
 				if ( event.touches.length == 1 ) {
 
-					event.preventDefault();
-
+					
 					mouseX = event.touches[ 0 ].pageX - windowHalfX;
 					mouseY = event.touches[ 0 ].pageY - windowHalfY;
 
@@ -205,7 +215,7 @@
 
 				if ( event.touches.length == 1 ) {
 
-					event.preventDefault();
+				
 
 					mouseX = event.touches[ 0 ].pageX - windowHalfX;
 					mouseY = event.touches[ 0 ].pageY - windowHalfY;
@@ -221,7 +231,7 @@
 				requestAnimationFrame( animate );
 
 				render();
-				stats.update();
+			
 
 			}
 
@@ -237,11 +247,7 @@
 
 			}
 
-		</script> -->
-		<div class="section active" id="section0">
-			<h1>mateband</h1>
-			<h2>Safe, Together</h2>
-		</div>
+		</script> 
     
     <div class="section" id="section1">
         
@@ -349,7 +355,20 @@
 			<div class="description description--preview"></div>
 		</div>
     </div>
-    <div class="section" id="section2" >
+
+	<div class="section" id="section2">
+		<div class="row">
+			<div class="ten columns">
+				<div class="text">
+					<h1>Creating safer spaces</h1>
+					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias consequatur, officiis, optio voluptatem mollitia labore eius ex tempora obcaecati dolor harum qui maxime debitis sunt beatae? Officiis tenetur facere aut!</p>
+				</div>
+			</div>
+		</div>	
+		<div class="bg-text">Concept</div>
+	</div>
+
+    <div class="section" id="section3" >
 		<div class="slide">
 		<div class="row">
 			<div class="six columns">
@@ -475,7 +494,7 @@
 			<button class="button button--close"><i class="icon icon--circle-cross"></i><span class="text-hidden">Close content</span></button>
 		</section> -->
     </div>
-    <div class="section" id="section3">
+    <div class="section" id="section4">
         <div class="intro">
             
             <p>
@@ -485,7 +504,7 @@
 		<div class="bg-text">Application</div>
         
     </div>
-        <div class="section" id="section4">
+        <div class="section" id="section5">
         <div class="intro">
             
             <p>
@@ -495,7 +514,7 @@
 		<div class="bg-text">About</div>
        
     </div>
-        <div class="section" id="section5">
+        <div class="section" id="section6">
         <div class="intro">
            
             <p>
@@ -525,8 +544,8 @@
 	<script type="text/javascript">
 		$(document).ready(function() {
 			$('#fullpage').fullpage({
-				sectionsColor: ['#fbfbfb', '#fbfbfb', '#fbfbfb', '#fbfbfb', '#fbfbfb', '#fbfbfb'],
-				anchors: ['firstPage', 'secondPage', '3rdPage', '4thpage', '5thpage', 'lastPage'],
+				sectionsColor: ['#fbfbfb', '#fbfbfb', '#fbfbfb', '#fbfbfb', '#fbfbfb', '#fbfbfb','#fbfbfb'],
+				anchors: ['firstPage', 'secondPage', '3rdPage', '4thpage', '5thpage', '6thage', 'lastpage'],
 				menu: '#menu',
 				css3: true,
 				scrollingSpeed: 800,
@@ -547,7 +566,7 @@
 
 	<script src="js/imagesloaded.pkgd.min.js"></script>
 	<script src="js/masonry.pkgd.min.js"></script>
-	<script src="js/main1.js"></script>
+	<script src="js/grid.js"></script>
 	<script>
 		(function() {
 			var support = { transitions: Modernizr.csstransitions },
