@@ -22,10 +22,10 @@
 
         // create points
         points = [];
-        for(var x = 0; x < width; x = x + width/13) {
-            for(var y = 0; y < height; y = y + height/13) {
-                var px = x + Math.random()*width/13;
-                var py = y + Math.random()*height/13;
+        for(var x = 0; x < width; x = x + width/10) {
+            for(var y = 0; y < height; y = y + height/10) {
+                var px = x + Math.random()*width/10;
+                var py = y + Math.random()*height/10;
                 var p = {x: px, originX: px, y: py, originY: py };
                 points.push(p);
             }
@@ -123,7 +123,7 @@
                 } else if(Math.abs(getDistance(target, points[i])) < 80000) {
                     points[i].active = 0.1;
                     points[i].circle.active = 0.3;
-                } else if(Math.abs(getDistance(target, points[i])) < 100000) {
+                } else if(Math.abs(getDistance(target, points[i])) < 60000) {
                     points[i].active = 0.02;
                     points[i].circle.active = 0.1;
                 } else {
