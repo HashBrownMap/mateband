@@ -17,14 +17,6 @@
    <script src="bower_components/jquery/dist/jquery.min.js"></script> <!-- for JQuery -->
    <script src="js/modernizr-custom.js"></script>
     <script src="js/modernizr.custom.js"></script>
-	
-		<script src="js/three.js"></script>
-
-		<script src="js/Projector.js"></script>
-		<script src="js/CanvasRenderer.js"></script>
-
-		<script src="js/stats.min.js"></script>
-		<script src="js/tween.min.js"></script>
     <!--[if lt IE 9]>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.js"></script>
     <![endif]-->
@@ -57,9 +49,18 @@
 <div id="fullpage">
 	
 	<div class="section active" id="section0">
-
+<!--
 				<h1>mateband</h1>
-				<h2>Safe, Together</h2>
+				<h2>Safe, Together</h2> -->
+				<div id="large-header" class="large-header">
+					<canvas id="demo-canvas"></canvas>
+					<div class="main-title">
+						<h1>mate<span class="thin">band</span></h1>
+						<h2>Safe, Together</h2>
+					</div>
+					
+					
+				</div>
 		
 		</div>
 			
@@ -346,12 +347,10 @@
 	<script src="js/dynamics.min.js"></script>
 	
 	
-	<script src="bower_components/gsap/src/uncompressed/TimelineMax.js"></script>
-	<script src="bower_components/gsap/src/uncompressed/TweenMax.js"></script>
-	
-	<script src="bower_components/scrollmagic/scrollmagic/uncompressed/ScrollMagic.js"></script>
-	<script src="bower_components/scrollmagic/scrollmagic/uncompressed/plugins/debug.addIndicators.js"></script>
-	<script src="bower_components/scrollmagic/scrollmagic/uncompressed/plugins/animation.gsap.js"></script>
+	<script src="js/TweenLite.min.js"></script>
+		<script src="js/EasePack.min.js"></script>
+		<script src="js/rAF.js"></script>
+		<script src="js/demo-1.js"></script>
 
 
 		<script type="text/javascript" src="js/fullpage.scrollHorizontally.min.js"></script>
