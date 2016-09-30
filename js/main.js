@@ -5,64 +5,25 @@
  * Licensed under the MIT license.
  * http://www.opensource.org/licenses/mit-license.php
  * 
- * Copyright 2015, Codrops
+ * Copyright 2016, Codrops
  * http://www.codrops.com
  */
 ;(function(window) {
 
 	'use strict';
 
-	var bodyEl = document.body, 
-		docElem = window.document.documentElement,
-		support = { transitions: Modernizr.csstransitions },
-		// transition end event name
-		transEndEventNames = { 'WebkitTransition': 'webkitTransitionEnd', 'MozTransition': 'transitionend', 'OTransition': 'oTransitionEnd', 'msTransition': 'MSTransitionEnd', 'transition': 'transitionend' },
-		transEndEventName = transEndEventNames[ Modernizr.prefixed( 'transition' ) ],
-		onEndTransition = function( el, callback ) {
-			var onEndCallbackFn = function( ev ) {
-				if( support.transitions ) {
-					if( ev.target != this ) return;
-					this.removeEventListener( transEndEventName, onEndCallbackFn );
-				}
-				if( callback && typeof callback === 'function' ) { callback.call(this); }
-			};
-			if( support.transitions ) {
-				el.addEventListener( transEndEventName, onEndCallbackFn );
+	// Helper vars and functions.
+	function extend(a, b) {
+		for( var key in b ) { 
+			if( b.hasOwnProperty( key ) ) {
+				a[key] = b[key];
 			}
-			else {
-				onEndCallbackFn();
-			}
-		},
-		// window sizes
-		win = {width: window.innerWidth, height: window.innerHeight},
-		// some helper vars to disallow scrolling
-		lockScroll = false, xscroll, yscroll,
-		scrollContainer = document.querySelector('.container'),
-		// the main slider and its items
-		sliderEl = document.querySelector('.sliding'),
-		items = [].slice.call(sliderEl.querySelectorAll('.slide')),
-		// total number of items
-		itemsTotal = items.length,
-		// navigation controls/arrows
-		navRightCtrl = sliderEl.querySelector('.button--nav-next'),
-		navLeftCtrl = sliderEl.querySelector('.button--nav-prev'),
-		zoomCtrl = sliderEl.querySelector('.button--zoom'),
-		// the main content element
-		contentEl = document.querySelector('.content'),
-		// close content control
-		closeContentCtrl = contentEl.querySelector('button.button--close'),
-		// index of current item
-		current = 0,
-		// check if an item is "open"
-		isOpen = false,
-		isFirefox = typeof InstallTrigger !== 'undefined',
-		// scale body when zooming into the items, if not Firefox (the performance in Firefox is not very good)
-		bodyScale = isFirefox ? false : 3;
-
-	// some helper functions:
-	function scrollX() { return window.pageXOffset || docElem.scrollLeft; }
-	function scrollY() { return window.pageYOffset || docElem.scrollTop; }
-	// from http://www.sberry.me/articles/javascript-event-throttling-debouncing
+		}
+		return a;
+	}
+	/**
+	 * Throttle fn: From https://sberry.me/articles/javascript-event-throttling-and-debouncing
+	 */
 	function throttle(fn, delay) {
 		var allowSample = true;
 
@@ -74,254 +35,356 @@
 			}
 		};
 	}
+	/**
+	 * Mouse position: From http://www.quirksmode.org/js/events_properties.html#position.
+	 */
+	function getMousePos(e) {
+		var posx = 0, posy = 0;
+		if (!e) var e = window.event;
+		if (e.pageX || e.pageY) 	{
+			posx = e.pageX;
+			posy = e.pageY;
+		}
+		else if (e.clientX || e.clientY) 	{
+			posx = e.clientX + document.body.scrollLeft + document.documentElement.scrollLeft;
+			posy = e.clientY + document.body.scrollTop + document.documentElement.scrollTop;
+		}
+		return { x : posx, y : posy };
+	}
+	/**
+	 * Distance between two points P1 (x1,y1) and P2 (x2,y2).
+	 */
+	function distancePoints(x1, y1, x2, y2) {
+		return Math.sqrt((x1-x2)*(x1-x2) + (y1-y2)*(y1-y2));
+	}
+	/**
+	 * Equation of a line.
+	 */
+	function lineEq(y2, y1, x2, x1, currentVal) {
+		// y = mx + b
+		var m = (y2 - y1) / (x2 - x1),
+			b = y1 - m * x1;
 
-	function init() {
-		initEvents();
+		return m * currentVal + b;
 	}
 
-	// event binding
-	function initEvents() {
-		// open items
+	var docScrolls = {left : document.body.scrollLeft + document.documentElement.scrollLeft, top : document.body.scrollTop + document.documentElement.scrollTop};
 
+	/**
+	 * Point obj.
+	 */
+	function Point(el, bgEl, wrapper, options) {
+		this.el = el;
+		this.wrapper = wrapper;
+		// Options/Settings.
+		this.options = extend( {}, this.options );
+		extend( this.options, options );
+		// A Point obj has a background element (img, video, ..) and a point/position (x,y) in the canvas.
+		this.bgEl = bgEl;
+		// The position of the point.
+		this.position = this._updatePosition();
+		// When the mouse is dmax away from the point, its image gets opacity = 0.
+		this.dmax = this.options.viewportFactor != -1 && this.options.viewportFactor > 0 ? this.wrapper.offsetWidth/this.options.viewportFactor : this.options.maxDistance;
+		if( this.dmax < this.options.activeOn ) {
+			this.options.activeOn = this.dmax-5; // todo
+		}
+		// Init/Bind events.
+		this._initEvents();
+	}
 
-		document.getElementById("one").addEventListener('click', function() {
-			current = 0;
-			openItem(items[0]);
-		});
-		document.getElementById("two").addEventListener('click', function() {
-			current = 1;
-			openItem(items[1]);
-			
-		});
-		document.getElementById("three").addEventListener('click', function() {
-			current = 2;
-			openItem(items[2]);
-			
-		});
-		// close content
-		closeContentCtrl.addEventListener('click', closeContent);
+	/**
+	 * Point options/settings.
+	 */
+	Point.prototype.options = {
+		// Maximum opacity that the bgEl can have.
+		maxOpacity : 1,
+		// When the mouse is [activeOn]px away from the point, its image gets opacity = this.options.maxOpacity.
+		activeOn : 20,
+		// The distance from the mouse pointer to a Point where the opacity of the background element is 0.
+		maxDistance : 100, 
+		// If viewportFactor is different than -1, then the maxDistance will be overwritten by [window´s width / viewportFactor]
+		viewportFactor : -1,
+		onActive : function() { return false; },
+		onInactive : function() { return false; },
+		onClick : function() { return false; }
+	};
 
-		// navigation
+	/**
+	 * Initialize/Bind events.
+	 */
+	Point.prototype._initEvents = function() {
+		var self = this;
 
-		// window resize
-		window.addEventListener('resize', throttle(function(ev) {
-			// reset window sizes
-			win = {width: window.innerWidth, height: window.innerHeight};
+		// Mousemove event.
+		this._throttleMousemove = throttle(function(ev) {
+			requestAnimationFrame(function() {
+				// Mouse position relative to the mapEl.
+				var mousepos = getMousePos(ev);
+				// Calculate the opacity value.
+				if( self.bgEl ) {
+					// Distance from the position of the point to the mouse position.
+					var distance = distancePoints(mousepos.x - docScrolls.left, mousepos.y - docScrolls.top, self.position.x - docScrolls.left, self.position.y - docScrolls.top),
+						// Convert this distance to a opacity value. (distance = 0 -> opacity = 1).
+						opacity = self._distanceToOpacity(distance);
 
-			// reset transforms for the items (slider items)
-			items.forEach(function(item, pos) {
-				if( pos === current ) return;
-				var el = item.querySelector('.slide__mover');
-				dynamics.css(el, { translateX: el.offsetWidth });
+					self.bgEl.style.opacity = opacity;
+
+					// Callback
+					if( !self.isActive && opacity === self.options.maxOpacity ) {
+						self.options.onActive();
+						self.isActive = true;
+					}
+					
+					if( opacity !== self.options.maxOpacity && self.isActive ) {
+						self.options.onInactive();
+						self.isActive = false;
+					}
+				}
 			});
-		}, 10));
+		}, 20);
+		this.wrapper.addEventListener('mousemove', this._throttleMousemove);
 
-		// keyboard navigation events
-		document.addEventListener( 'keydown', function( ev ) {
-			if( isOpen ) return; 
+		// Clicking a point.
+		this._click = function(ev) {
+			// Callback.
+			self.options.onClick();
+		};
+		this.el.addEventListener('click', this._click);
+
+		// Window resize.
+		this._throttleResize = throttle(function() {
+			// Update Point´s position.
+			self.position = self._updatePosition();
+			// Update dmax
+			if( self.options.viewportFactor != -1 && self.options.viewportFactor > 0 ) {
+				self.dmax = self.wrapper.offsetWidth/self.options.viewportFactor;
+			}
+		}, 100);
+		window.addEventListener('resize', this._throttleResize);
+
+		// Set the opacity of the bgEl to 0 when leaving the wrapper area..
+		this.wrapper.addEventListener('mouseleave', function() {
+			if( !self.isActive ) {
+				self.bgEl.style.opacity = 0;
+			}
+		});
+	};
+
+	/**
+	 * Update Point´s position.
+	 */
+	Point.prototype._updatePosition = function() {
+		var rect = this.el.getBoundingClientRect(), bbox = this.el.getBBox();
+		// Also update origins..
+		this.el.style.transformOrigin = this.el.style.WebkitTransformOrigin = (bbox.x + rect.width/2) + 'px ' + (bbox.y + rect.height) + 'px';
+		return {x : rect.left + rect.width/2 + docScrolls.left, y : rect.top + rect.height/2 + docScrolls.top};
+	};
+
+	/**
+	 * Maps the distance to opacity.
+	 */
+	Point.prototype._distanceToOpacity = function(d) {
+		return Math.min(Math.max(lineEq(this.options.maxOpacity, 0, this.options.activeOn, this.dmax, d), 0), this.options.maxOpacity);
+	};
+
+	/**
+	 * Hides the Point.
+	 */
+	Point.prototype.hide = function() {
+		lunar.addClass(this.el, 'point--hide');
+	};
+
+	/**
+	 * 
+	 */
+	Point.prototype.show = function() {
+		lunar.removeClass(this.el, 'point--hide')
+	};
+
+	/**
+	 * 
+	 */
+	Point.prototype.pause = function() {
+		this.wrapper.removeEventListener('mousemove', this._throttleMousemove);
+	};
+
+	/**
+	 * 
+	 */
+	Point.prototype.resume = function() {
+		this.wrapper.addEventListener('mousemove', this._throttleMousemove);
+	};
+
+	/**
+	 * PointsMap obj.
+	 */
+	function PointsMap(el, options) {
+		this.el = document.getElementById('interactive-2');
+		// Options/Settings.
+		this.options = extend( {}, this.options );
+		extend( this.options, options );
+		
+		// Backgrounds container.
+		this.bgsWrapper = this.el.querySelector('.backgrounds');
+		if( !this.bgsWrapper ) { return; }
+		
+		// Background elements.
+		this.bgElems = [].slice.call(this.bgsWrapper.querySelectorAll('.background__element'));
+		// Total background elements.
+		this.bgElemsTotal = this.bgElems.length;
+		if( this.bgElemsTotal <= 1 ) { return; }
+		
+		// Points container.
+		this.pointsWrapper = this.el.querySelector('.points');
+		if( !this.pointsWrapper || getComputedStyle(this.pointsWrapper, null).display === 'none' ) { return; }
+
+		// Points tooltips
+		this.tooltips = [].slice.call(this.el.querySelector('.points-tooltips').children);
+
+		// Points´s content
+		this.pointsContentWrapper = this.el.querySelector('.points-content');
+		this.contents = [].slice.call(this.pointsContentWrapper.children);
+
+		// Init..
+		this._init();
+	}
+
+	/**
+	 * PointsMap options/settings.
+	 */
+	PointsMap.prototype.options = {
+		// Maximum opacity that the background element of a Point can have when the point is active (mouse gets closer to it).
+		maxOpacityOnActive : 0.3,
+		// The distance from the mouse pointer to a Point where the opacity of the background element is 0.
+		maxDistance : 70, 
+		// If viewportFactor is different than -1, then the maxDistance will be overwritten by [point´s parent width / viewportFactor]
+		viewportFactor : 9,
+		// When the mouse is [activeOn]px away from one point, its image gets opacity = point.options.maxOpacity.
+		activeOn : 30
+	};
+
+	/**
+	 * Init.
+	 */
+	PointsMap.prototype._init = function() {
+		var self = this, 
+			onLoaded = function() {
+				// Create the Points.
+				self._createPoints();
+			};
+
+		// Preload all images.
+		imagesLoaded(this.bgsWrapper, { background: true }, onLoaded);
+
+		// Init/Bind events.
+		this._initEvents();
+	};
+
+	/**
+	 * Init/Bind events.
+	 */
+	PointsMap.prototype._initEvents = function() {
+		var self = this;
+
+		// Window resize.
+		this._throttleResize = throttle(function() {
+			// Update Document scroll values.
+			docScrolls = {left : document.body.scrollLeft + document.documentElement.scrollLeft, top : document.body.scrollTop + document.documentElement.scrollTop};
+		}, 100);
+		window.addEventListener('resize', this._throttleResize);
+
+		// Close content.
+		this._closeContent = function() {
+			var currentPoint = self.points[self.currentPoint];
+			currentPoint.isActive = false;
+			// Hide Point´s bgEl.
+			currentPoint.bgEl.style.opacity = 0;
+			// Hide content.
+			self.pointsContentWrapper.classList.remove('points-content--open');
+			self.contents[self.currentPoint].classList.remove('point-content--current');
+			// Start mousemove event on Points.
+			self._pointsAction('resume');
+			// Show all points.
+			self._pointsAction('show');
+		};
+		this.pointsContentWrapper.addEventListener('click', this._closeContent);
+
+		// Keyboard navigation events.
+		this.el.addEventListener('keydown', function(ev) {
 			var keyCode = ev.keyCode || ev.which;
-			switch (keyCode) {
-				case 37:
-					navigate('left');
-					break;
-				case 39:
-					navigate('right');
-					break;
-			}
-		} );
-	}
-
-	// opens one item
-	function openItem(item) {
-		if( isOpen ) return;
-		isOpen = true;
-
-		// the element that will be transformed
-		var zoomer = item.querySelector('.zoomer');
-		// slide screen preview
-		classie.add(zoomer, 'zoomer--active');
-		// disallow scroll
-		
-		/*scrollContainer.addEventListener('scroll', noscroll);*/
-		// apply transforms
-		applyTransforms(zoomer);
-		// also scale the body so it looks the camera moves to the item.
-		if( bodyScale ) {
-			dynamics.animate(bodyEl, { scale: bodyScale }, { type: dynamics.easeInOut, duration: 500 });
-		}
-		// after the transition is finished:
-		onEndTransition(zoomer, function() {
-			// reset body transform
-			if( bodyScale ) {
-				dynamics.stop(bodyEl);
-				dynamics.css(bodyEl, { scale: 1 });
-				
-				// fix for safari (allowing fixed children to keep position)
-				bodyEl.style.WebkitTransform = 'none';
-				bodyEl.style.transform = 'none';
-			}
-			// no scrolling
-			classie.add(bodyEl, 'noscroll');
-			classie.add(contentEl, 'content--open');
-			var contentItem = document.getElementById(item.getAttribute('data-content'));
-			classie.add(contentItem, 'content__item--current');
-			classie.add(contentItem, 'content__item--reset');
-
-
-			// reset zoomer transform - back to its original position/transform without a transition
-			classie.add(zoomer, 'zoomer--notrans');
-			zoomer.style.WebkitTransform = 'translate3d(0,0,0) scale3d(1,1,1)';
-			zoomer.style.transform = 'translate3d(0,0,0) scale3d(1,1,1)';
-		});
-	}
-
-	// closes the item/content
-	function closeContent() {
-		var contentItem = contentEl.querySelector('.content__item--current'),
-			zoomer = items[current].querySelector('.zoomer');
-
-		classie.remove(contentEl, 'content--open');
-		classie.remove(contentItem, 'content__item--current');
-		classie.remove(bodyEl, 'noscroll');
-				
-		if( bodyScale ) {
-			// reset fix for safari (allowing fixed children to keep position)
-			bodyEl.style.WebkitTransform = '';
-			bodyEl.style.transform = '';
-		}
-
-		/* fix for safari flickering */
-		var nobodyscale = true;
-		applyTransforms(zoomer, nobodyscale);
-		/* fix for safari flickering */
-
-		// wait for the inner content to finish the transition
-		onEndTransition(contentItem, function(ev) {
-			classie.remove(this, 'content__item--reset');
-			
-			// reset scrolling permission
-			lockScroll = false;
-			
-
-			/* fix for safari flickering */
-			zoomer.style.WebkitTransform = 'translate3d(0,0,0) scale3d(1,1,1)';
-			zoomer.style.transform = 'translate3d(0,0,0) scale3d(1,1,1)';
-			/* fix for safari flickering */
-			
-			// scale up - behind the scenes - the item again (without transition)
-			applyTransforms(zoomer);
-			
-			// animate/scale down the item
-			setTimeout(function() {	
-				classie.remove(zoomer, 'zoomer--notrans');
-				classie.remove(zoomer, 'zoomer--active');
-				zoomer.style.WebkitTransform = 'translate3d(0,0,0) scale3d(1,1,1)';
-				zoomer.style.transform = 'translate3d(0,0,0) scale3d(1,1,1)';
-			}, 25);
-
-			if( bodyScale ) {
-				dynamics.css(bodyEl, { scale: bodyScale });
-				dynamics.animate(bodyEl, { scale: 1 }, {
-					type: dynamics.easeInOut,
-					duration: 500
-				});
-			}
-
-			isOpen = false;
-		});
-	}
-
-	// applies the necessary transform value to scale the item up
-	function applyTransforms(el, nobodyscale) {
-		// zoomer area and scale value
-		var zoomerArea = el.querySelector('.zoomer__area'), 
-			zoomerAreaSize = {width: zoomerArea.offsetWidth, height: zoomerArea.offsetHeight},
-			zoomerOffset = zoomerArea.getBoundingClientRect(),
-			scaleVal = zoomerAreaSize.width/zoomerAreaSize.height < win.width/win.height ? win.width/zoomerAreaSize.width : win.height/zoomerAreaSize.height;
-
-		if( bodyScale && !nobodyscale ) {
-			scaleVal /= bodyScale; 
-		}
-
-		// apply transform
-		el.style.WebkitTransform = 'translate3d(' + Number(win.width/2 - (zoomerOffset.left+zoomerAreaSize.width/2)) + 'px,' + Number(win.height/2 - (zoomerOffset.top+zoomerAreaSize.height/2)) + 'px,0) scale3d(' + scaleVal + ',' + scaleVal + ',1)';
-		el.style.transform = 'translate3d(' + Number(win.width/2 - (zoomerOffset.left+zoomerAreaSize.width/2)) + 'px,' + Number(win.height/2 - (zoomerOffset.top+zoomerAreaSize.height/2)) + 'px,0) scale3d(' + scaleVal + ',' + scaleVal + ',1)';
-	}
-
-	// navigate the slider
-	function navigate(dir) {
-		var itemCurrent = items[current],
-			currentEl = itemCurrent.querySelector('.slide__mover'),
-			currentTitleEl = itemCurrent.querySelector('.slide__title');
-
-		// update new current value
-		if( dir === 'right' ) {
-			current = current < itemsTotal-1 ? current + 1 : 0;
-		}
-		else {
-			current = current > 0 ? current - 1 : itemsTotal-1;
-		}
-
-		var itemNext = items[current],
-			nextEl = itemNext.querySelector('.slide__mover'),
-			nextTitleEl = itemNext.querySelector('.slide__title');
-		
-		// animate the current element out
-		dynamics.animate(currentEl, { opacity: 0, translateX: dir === 'right' ? -1*currentEl.offsetWidth/2 : currentEl.offsetWidth/2, rotateZ: dir === 'right' ? -10 : 10 }, {
-			type: dynamics.spring,
-			duration: 2000,
-			friction: 600,
-			complete: function() {
-				dynamics.css(itemCurrent, { opacity: 0, visibility: 'hidden' });
+			if( keyCode === 27 ) {
+				self._closeContent();
 			}
 		});
+	};
 
-		// animate the current title out
-		dynamics.animate(currentTitleEl, { translateX: dir === 'right' ? -250 : 250, opacity: 0 }, {
-			type: dynamics.bezier,
-			points: [{"x":0,"y":0,"cp":[{"x":0.2,"y":1}]},{"x":1,"y":1,"cp":[{"x":0.3,"y":1}]}],
-			duration: 450
-		});
+	/**
+	 * Create the Points.
+	 */
+	PointsMap.prototype._createPoints = function() {
+		this.points = [];
 
-		// set the right properties for the next element to come in
-		dynamics.css(itemNext, { opacity: 1, visibility: 'visible' });
-		dynamics.css(nextEl, { opacity: 0, translateX: dir === 'right' ? nextEl.offsetWidth/2 : -1*nextEl.offsetWidth/2, rotateZ: dir === 'right' ? 10 : -10 });
+		var self = this;
+		[].slice.call(this.pointsWrapper.querySelectorAll('.point')).forEach(function(point, pos) {
+			var p = new Point(point, self.bgElems[pos], self.el, {
+				maxOpacity : self.options.maxOpacityOnActive, 
+				activeOn : self.options.activeOn, 
+				maxDistance : self.options.maxDistance, 
+				viewportFactor : self.options.viewportFactor, 
+				onActive : function() {
+					// Add class active (scales up the pin and changes the fill color).
+					lunar.addClass(self.points[pos].el, 'point--active');
+					// Hide all other points.
+					self._pointsAction('hide', pos);
+					// Show tooltip.
+					var tooltip = self.tooltips[pos];
+					tooltip.classList.add('point-tooltip--current');
+					// Position tooltip.
+					var rect = self.points[pos].el.getBoundingClientRect(),
+						bounds = self.el.getBoundingClientRect();
 
-		// animate the next element in
-		dynamics.animate(nextEl, { opacity: 1, translateX: 0 }, {
-			type: dynamics.spring,
-			duration: 2000,
-			friction: 600,
-			complete: function() {
-				items.forEach(function(item) { classie.remove(item, 'slide--current'); });
-				classie.add(itemNext, 'slide--current');
+					tooltip.style.left = rect.left - bounds.left + rect.width/2 + 'px';
+					tooltip.style.top = rect.top - bounds.top + rect.height + 'px';
+				},
+				onInactive : function() {
+					lunar.removeClass(self.points[pos].el, 'point--active');
+					// Show all points.
+					self._pointsAction('show', pos);
+					// Hide tooltip.
+					self.tooltips[pos].classList.remove('point-tooltip--current');
+				},
+				onClick : function() {
+					self.currentPoint = pos;
+					lunar.removeClass(self.points[pos].el, 'point--active');
+					// Hide the current point (and all other points).
+					self._pointsAction('hide');
+					// Hide tooltip.
+					self.tooltips[pos].classList.remove('point-tooltip--current');
+					// Stop mousemove event on Points.
+					self._pointsAction('pause');
+					// Show Point´s bgEl.
+					self.points[pos].bgEl.style.opacity = 1;
+					// Show content.
+					self.pointsContentWrapper.classList.add('points-content--open');
+					self.contents[pos].classList.add('point-content--current');
+				}
+			});
+			self.points.push(p);
+		});	
+	};
+
+	/**
+	 * Calls a Point´s fn. Excludes the point with index = excludedPoint.
+	 */
+	PointsMap.prototype._pointsAction = function(action, excludedPoint) {
+		for(var i = 0, len = this.points.length; i < len; ++i) {
+			if( i !== excludedPoint ) {
+				this.points[i][action]();
 			}
-		});
-
-		// set the right properties for the next title to come in
-		dynamics.css(nextTitleEl, { translateX: dir === 'right' ? 250 : -250, opacity: 0 });
-		// animate the next title in
-		dynamics.animate(nextTitleEl, { translateX: 0, opacity: 1 }, {
-			type: dynamics.bezier,
-			points: [{"x":0,"y":0,"cp":[{"x":0.2,"y":1}]},{"x":1,"y":1,"cp":[{"x":0.3,"y":1}]}],
-			duration: 650
-		});
-	}
-
-	// disallow scrolling (on the scrollContainer)
-	function noscroll() {
-		if(!lockScroll) {
-			lockScroll = true;
-			xscroll = scrollContainer.scrollLeft;
-			yscroll = scrollContainer.scrollTop;
 		}
-		scrollContainer.scrollTop = yscroll;
-		scrollContainer.scrollLeft = xscroll;
-	}
+	};
 
-
-
-	init();
-
+	window.PointsMap = PointsMap;
+	document.documentElement.className = 'js';
 
 })(window);

@@ -7,11 +7,13 @@
     <title>Mate Band</title>
     <link rel="stylesheet" href="css/reset.css">
      <link rel="stylesheet" href="css/pills.min.css">
-	<link rel="stylesheet" type="text/css" href="css/component.css" />
+	
 	<link rel="stylesheet" href="css/main.css">
 	<link rel="stylesheet" type="text/css" href="css/jquery.fullPage.css" />
 	<link rel="stylesheet" type="text/css" href="fonts/font-awesome-4.3.0/css/font-awesome.min.css" />
 	<link rel="stylesheet" type="text/css" href="fonts/feather/style.css">
+	<link rel="stylesheet" type="text/css" href="css/component.css" />
+	
     
     
    <script src="bower_components/jquery/dist/jquery.min.js"></script> <!-- for JQuery -->
@@ -310,13 +312,56 @@
 		</section> -->
     </div>
     <div class="section" id="section4">
-        <div class="intro">
-            
-            <p>
-            
-            </p>
-        </div>
-		<div class="bg-text">Application</div>
+      <section class="interactive-points interactive-points--alter" id="interactive-2" tabindex="0">
+				<img class="static" src="images/map.png" alt="Map of London" />
+				<div class="backgrounds">
+					<div class="background__element" style="background-image: url(images/1.jpg)"></div>
+					<div class="background__element" style="background-image: url(images/2.jpg)"></div>
+					<div class="background__element" style="background-image: url(images/3.jpg)"></div>
+					<div class="background__element" style="background-image: url(images/4.jpg)"></div>
+					<div class="background__element" style="background-image: url(images/5.jpg)"></div>
+					<div class="background__element" style="background-image: url(images/6.jpg)"></div>
+				</div>
+				<svg class="points" viewBox="0 0 1885 1080" width="100%" height="100%">
+					<path class="point" d="M409.2,195.4L409.2,195.4c-7.1-7.1-18.6-7.1-25.7,0l0,0c-6.4,6.4-7.1,18.4-1.7,25.7l14.5,21l14.5-21C416.3,213.8,415.6,201.8,409.2,195.4z"/>
+					<path class="point" d="M1069.3,589.7L1069.3,589.7c-7.1-7.1-18.6-7.1-25.7,0l0,0c-6.4,6.4-7.1,18.4-1.7,25.7l14.5,21l14.5-21C1076.4,608.2,1075.7,596.1,1069.3,589.7z"/>
+					<path class="point" d="M1533.8,114.2L1533.8,114.2c-7.1-7.1-18.6-7.1-25.7,0l0,0c-6.4,6.4-7.1,18.4-1.7,25.7l14.5,21l14.5-21C1541,132.6,1540.2,120.6,1533.8,114.2z"/>
+					<path class="point" d="M878.9,247.4L878.9,247.4c-7.1-7.1-18.6-7.1-25.7,0l0,0c-6.4,6.4-7.1,18.4-1.7,25.7l14.5,21l14.5-21C886,265.8,885.3,253.8,878.9,247.4z"/>
+					<path class="point" d="M615.2,658.3L615.2,658.3c-7.1-7.1-18.6-7.1-25.7,0l0,0c-6.4,6.4-7.1,18.4-1.7,25.7l14.5,21l14.5-21C622.3,676.8,621.6,664.7,615.2,658.3z"/>
+					<path class="point" d="M183.5,524L183.5,524c-7.1-7.1-18.6-7.1-25.7,0l0,0c-6.4,6.4-7.1,18.4-1.7,25.7l14.5,21l14.5-21C190.6,542.5,189.9,530.4,183.5,524z"/>
+				</svg>
+				<div class="points-tooltips">
+					<div class="point-tooltip"><h2 class="point-tooltip__title">Luke Skywalker</h2><br><p class="point-tooltip__description">Newly added friend</p></div>
+					<div class="point-tooltip"><h2 class="point-tooltip__title">Hailey G.</h2><br><p class="point-tooltip__description">Friend</p></div>
+					<div class="point-tooltip"><h2 class="point-tooltip__title">Tom Chen</h2><br><p class="point-tooltip__description">Best Friend</p></div>
+					<div class="point-tooltip"><h2 class="point-tooltip__title">MIA Stage</h2><br><p class="point-tooltip__description">Lit</p></div>
+					<div class="point-tooltip"><h2 class="point-tooltip__title">Water fountain</h2><br><p class="point-tooltip__description">Stay hydrated</p></div>
+					<div class="point-tooltip"><h2 class="point-tooltip__title">First Aid</h2><br><p class="point-tooltip__description">No need to panic</p></div>
+				</div>
+				<div class="points-content">
+					<div class="point-content">
+						
+					</div>
+					<div class="point-content">
+						
+					</div>
+					<div class="point-content">
+						
+					</div>
+					<div class="point-content">
+					
+					</div>
+					<div class="point-content">
+						
+					</div>
+					<div class="point-content">
+						<h3 class="point-content__title">First Aid</h3>
+						
+						<p class="point-content__text">Locate medical staff with ease!</p>
+					</div>
+				</div>
+			</section>
+
         
     </div>
 
@@ -335,6 +380,7 @@
 
 	<script src="js/classie.js"></script>
 	<script src="js/dynamics.min.js"></script>
+	
 	
 	
 	<script src="js/TweenLite.min.js"></script>
@@ -368,9 +414,25 @@
 		});
 	</script>
 
-	<script src="js/imagesloaded.pkgd.min.js"></script>
 	<script src="js/masonry.pkgd.min.js"></script>
+	<script src="js/lunar.js"></script>
+	<script src="js/imagesloaded.pkgd.min.js"></script>
+	<script src="js/main.js"></script>
 	<script src="js/grid.js"></script>
+
+	<script>
+		(function() {
+			
+			new PointsMap(document.querySelector('#interactive-2'), {
+				// Maximum opacity that the background element of a Point can have when the point is active (mouse gets closer to it).
+				maxOpacityOnActive : 0.75,
+				// When the mouse is [activeOn]px away from one point, its image gets opacity = point.options.maxOpacity.
+				activeOn : 90
+			});
+			
+		})();
+		
+		</script>
 	<script>
 		(function() {
 			var support = { transitions: Modernizr.csstransitions },
@@ -429,10 +491,6 @@
 			});
 		})();
 	</script>
-
-
-	<script src="js/main.js"></script>
- 
 
 </body>
 </html>

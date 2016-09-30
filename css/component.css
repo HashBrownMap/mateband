@@ -922,7 +922,61 @@ figure.effect-ming:hover img {
 	opacity: 0.4;
 }
 
-/* INTERACTIVE MAP */
+/* BG ANIMATION */
+
+
+.large-header {
+	position: relative;
+	width: 100%;
+	background: #fbfbfb;
+	overflow: hidden;
+	background-size: cover;
+	background-position: center center;
+	z-index: 1;
+}
+
+.demo-1 .large-header {
+	background-image: url('../images/demo-1-bg.jpg');
+}
+
+
+
+.main-title {
+	position: absolute;
+	margin: 0;
+	padding: 0;
+	
+	text-align: center;
+	top: 50%;
+	left: 50%;
+	-webkit-transform: translate3d(-50%,-50%,0);
+	transform: translate3d(-50%,-50%,0);
+}
+
+.demo-1 .main-title, 
+.demo-3 .main-title {
+	text-transform: uppercase;
+	font-size: 4.2em;
+	letter-spacing: 0.1em;
+}
+
+.main-title .thin {
+	font-weight: 200;
+}
+
+@media only screen and (max-width : 768px) {
+	.demo-1 .main-title, 
+	.demo-3 .main-title,
+	.demo-4 .main-title {
+		font-size: 3em;
+	}
+
+	.demo-2 .main-title {
+		font-size: 4em;
+	}
+}
+
+/*INTERACTIVE MAP */
 
 .interactive-points {
 	position: relative;
@@ -939,7 +993,7 @@ figure.effect-ming:hover img {
 
 .backgrounds,
 .background__element {
-	position: relative;
+	position: absolute;
 	width: 100%;
 }
 
@@ -1032,10 +1086,11 @@ figure.effect-ming:hover img {
 
 .point-tooltip {
 	height: 50vh;
+	color:white;
 }
 
 .point-tooltip__title {
-	font-family: 'Source Serif Pro', serif;
+	
 	font-size: 1.5em;
 	line-height: 1;
 	margin: 0 0 0.15em;
@@ -1057,17 +1112,18 @@ figure.effect-ming:hover img {
 .points-content {
 	-webkit-transition: background 0.1s;
 	transition: background 0.1s;
+	color: white;
 }
 
 .points-content--open {
-	cursor: url(img/close.cur), pointer;
+	cursor: url(../images/close.cur), pointer;
 	pointer-events: auto;
 	background: rgba(50,49,59,0.6);
 }
 
 @supports (cursor: zoom-in) {
     .points-content--open {
-		cursor: url(../img/close.png) 12 6, pointer;
+		cursor: url(../images/close.png) 12 6, pointer;
 	}
 }
 
@@ -1088,7 +1144,7 @@ figure.effect-ming:hover img {
 }
 
 .point-content__title {
-	font-family: 'Source Serif Pro', serif;
+	
 	font-size: 2.25em;
 	margin: 0;
 	text-shadow: 0 1px 5px rgba(0,0,0,0.2);
@@ -1142,7 +1198,7 @@ figure.effect-ming:hover img {
 	padding: 0 3em 3em;
 }
 
-@media screen and (min-width: 52.375em) {
+@media screen and (min-width:512px) {
 	.point-content {
 		width: 50%;
 	}
@@ -1182,58 +1238,7 @@ figure.effect-ming:hover img {
 }
 
 
-/* BG ANIMATION */
 
 
-.large-header {
-	position: relative;
-	width: 100%;
-	background: #fbfbfb;
-	overflow: hidden;
-	background-size: cover;
-	background-position: center center;
-	z-index: 1;
-}
-
-.demo-1 .large-header {
-	background-image: url('../images/demo-1-bg.jpg');
-}
-
-
-
-.main-title {
-	position: absolute;
-	margin: 0;
-	padding: 0;
-	
-	text-align: center;
-	top: 50%;
-	left: 50%;
-	-webkit-transform: translate3d(-50%,-50%,0);
-	transform: translate3d(-50%,-50%,0);
-}
-
-.demo-1 .main-title, 
-.demo-3 .main-title {
-	text-transform: uppercase;
-	font-size: 4.2em;
-	letter-spacing: 0.1em;
-}
-
-.main-title .thin {
-	font-weight: 200;
-}
-
-@media only screen and (max-width : 768px) {
-	.demo-1 .main-title, 
-	.demo-3 .main-title,
-	.demo-4 .main-title {
-		font-size: 3em;
-	}
-
-	.demo-2 .main-title {
-		font-size: 4em;
-	}
-}
 
 

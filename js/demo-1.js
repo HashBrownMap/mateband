@@ -71,7 +71,7 @@
     // Event handling
     function addListeners() {
         if(!('ontouchstart' in window)) {
-            window.addEventListener('mousemove', mouseMove);
+            document.getElementById('section0').addEventListener('mousemove', mouseMove);
         }
         window.addEventListener('scroll', scrollCheck);
         window.addEventListener('resize', resize);
