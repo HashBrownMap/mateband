@@ -63,7 +63,7 @@
 
         // assign a circle to each point
         for(var i in points) {
-            var c = new Circle(points[i], 2+Math.random()*4, 'rgba(255,255,255,0.3)');
+            var c = new Circle(points[i], 2+Math.random()*4, 'rgba(215,58,49,1)');
             points[i].circle = c;
         }
     }
@@ -118,13 +118,13 @@
             for(var i in points) {
                 // detect points in range
                 if(Math.abs(getDistance(target, points[i])) < 18000) {
-                    points[i].active = 0.3;
-                    points[i].circle.active = 0.6;
+                    points[i].active = 0.7;
+                    points[i].circle.active = 1;
                 } else if(Math.abs(getDistance(target, points[i])) < 80000) {
-                    points[i].active = 0.1;
+                    points[i].active = 0.5;
                     points[i].circle.active = 0.3;
                 } else if(Math.abs(getDistance(target, points[i])) < 60000) {
-                    points[i].active = 0.02;
+                    points[i].active = 0.2;
                     points[i].circle.active = 0.1;
                 } else {
                     points[i].active = 0;
@@ -153,7 +153,7 @@
             ctx.beginPath();
             ctx.moveTo(p.x, p.y);
             ctx.lineTo(p.closest[i].x, p.closest[i].y);
-            ctx.strokeStyle = 'rgba(25,52,70,'+ p.active+')';
+            ctx.strokeStyle = 'rgba(8, 112, 138,'+ p.active+')';
             ctx.stroke();
         }
     }
@@ -172,7 +172,7 @@
             if(!_this.active) return;
             ctx.beginPath();
             ctx.arc(_this.pos.x, _this.pos.y, _this.radius, 0, 2 * Math.PI, false);
-            ctx.fillStyle = 'rgba(25,52,70,'+ _this.active+')';
+            ctx.fillStyle = 'rgba(215,58,49,'+ _this.active+')';
             ctx.fill();
         };
     }

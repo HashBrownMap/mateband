@@ -6,7 +6,7 @@ body {
 	
 }
 
-#section2 {
+#section1 {
 	position: relative;
 	overflow: hidden;
 	overflow-y: scroll;
@@ -15,9 +15,11 @@ body {
 	-webkit-overflow-scrolling: touch;
 }
 
-.noscroll #section2 {
+.noscroll #section1 {
 	overflow-y: hidden;
 }
+
+
 
 .slider {
 	position: relative;
@@ -430,6 +432,7 @@ body {
 .grid {
 	position: relative;
 	margin: 0 auto;
+	z-index: 100;
 }
 
 .js .grid::after {
@@ -451,7 +454,7 @@ body {
 }
 
 .grid__item {
-	width: 415px;
+	width: 390px;
 	
 }
 
@@ -945,12 +948,11 @@ figure.effect-ming:hover img {
 	position: absolute;
 	margin: 0;
 	padding: 0;
+	float: left;
+	text-align: left;
+	top: 30%;
+	left: 5%;
 	
-	text-align: center;
-	top: 50%;
-	left: 50%;
-	-webkit-transform: translate3d(-50%,-50%,0);
-	transform: translate3d(-50%,-50%,0);
 }
 
 .demo-1 .main-title, 
