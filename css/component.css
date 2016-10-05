@@ -455,6 +455,7 @@ body {
 
 .grid__item {
 	width: 390px;
+	max-height: 300px;	
 	
 }
 
@@ -788,14 +789,16 @@ body {
 
 @media screen and (min-width:1600px) {
 	.grid__item {
-		width: 550px !important;		
+		width: 550px !important;
+		max-height: 400px;		
 	}
 }
 
 
 @media screen and (min-width:2000px) {
 	.grid__item {
-		width: 630px !important;		
+		width: 630px !important;	
+		max-height: 500px;	
 	}
 }
 
