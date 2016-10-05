@@ -802,8 +802,10 @@ body {
 
 @media screen and (max-width: 990px) {
 	.grid__item {
-		width: 400px !important;		
+		width: 400px !important;	
+		max-height: 300px;	
 	}
+	
 
 	.grid{
 		max-height: 1300px;
