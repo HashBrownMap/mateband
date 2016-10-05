@@ -189,6 +189,11 @@ footer img{
     float:right;
 }
 
+#rhodium h4{
+    float:right;
+    padding-right: 12px;
+}
+
 #section5 h1{
     font-size: 3em;
     padding-bottom: 12em;
@@ -375,6 +380,10 @@ a {
         text-align:center;
         padding-bottom: 20px;
     }
+
+    #rhodium h4{
+    float:none;
+}
 
     footer img{
         float: none;
