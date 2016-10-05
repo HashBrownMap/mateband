@@ -28,7 +28,7 @@ background-color: transparent;
 }
 
 #section0 img{
-    max-width: 120px;
+    max-width: 160px;
     position: absolute;
     float: left;
     padding-left: 40px;
@@ -122,9 +122,9 @@ font-size: 240%;
     padding-top: 0em;
 }
 #secondslide .text{
-    margin-left: 2em;
+    margin-left: 0em;
     padding-top: 3em;
-    margin-right: 10em;
+    margin-right: 7em;
 
 }
 
@@ -257,3 +257,47 @@ a {
 }
 
  
+@media only screen and (min-width : 512px) {
+    #section0 img {
+    max-width: 250px;}
+    #section0 h1{
+    
+    font-size:0.7em;
+ 
+}
+
+.columns.six{
+    width: 100%;
+    display:block;
+}
+
+#secondslide .text{
+    margin-left: 14em;
+    padding-top: 3em;
+    margin-right: 2em;
+
+}
+
+#secondslide img{ padding-top: 1em;}
+
+
+
+#section2 h5{
+   font-size: 190%;
+
+}
+#section2 img{
+    padding-left: 12em;
+    max-height: 700px;
+}
+
+
+	#section0 h2{
+    
+    font-size: 50%;
+   padding-bottom: 0.5em;
+   padding-right: 2em;
+ 
+}
+}
+
