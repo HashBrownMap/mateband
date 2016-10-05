@@ -800,8 +800,14 @@ body {
 }
 
 
-@media screen and (max-width: 981px) {
-	
+@media screen and (max-width: 990px) {
+	.grid__item {
+		width: 400px !important;		
+	}
+
+	.grid{
+		max-height: 1300px;
+	}
 	.action{
 		font-size: 2.5em;
 	}
