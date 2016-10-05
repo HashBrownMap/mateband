@@ -155,7 +155,7 @@
 					<figure class="effect-ming">
 					<a href="images/hp.jpg" class="img-wrap"><img src="images/hp.jpg" alt="img06" class="wow slideInRight" data-wow-delay="0.2s"/>
 						<figcaption>
-							<h2>Amusement Parks <span>Parks</span></h2>
+							<h2>Amusement <span>Parks</span></h2>
 							<p>Click for details </p>
 						
 						</figcaption>			
@@ -193,7 +193,7 @@
     </div>
 
     <div class="section" id="section2" >
-		<div class="slide">
+		<div class="slide" id="firstslide">
 		<div class="row">
 			<div class="six columns">
 				<div class="text">
@@ -225,7 +225,7 @@
 			
 		</div>
 		</div>
-		<div class="slide">
+		<div class="slide" id="thirdslide">
 		<div class="row">
 			<div class="six columns">
 				<div class="text">
@@ -330,16 +330,16 @@
 	<script src="js/grid.js"></script>
 
 	<script>
-		function load() {
+	/*	function load() {
 			new PointsMap(document.querySelector('#interactive-1'));
 			
 			
 		}
-		window.onload = load;
+		window.onload = load; */
 		
 		</script>
 
-
+			<script src="js/fullpage.responsiveSlides.min.js"></script>
 			<script type="text/javascript" src="js/fullpage.scrollHorizontally.min.js"></script>
 	<script type="text/javascript" src="js/jquery.fullPage.min.js"></script>
 	<script type="text/javascript">
@@ -351,18 +351,17 @@
 				css3: true,
 				scrollingSpeed: 800,
 				slidesNavigation: true,
+				slidesToSections: true,
 				scrollHorizontally: true,
 				controlArrows: false,
-				responsiveWidth: 600,
-				
+				responsiveWidth: 1000,
+				responsiveSlides:true,
 				scrollBar:true
 				
-
-
 				//design
 
 			});
-
+			
 
 		});
 	</script>

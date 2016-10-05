@@ -793,13 +793,17 @@ body {
 }
 
 
-@media screen and (max-width: 40em) {
-	.description--preview h3 {
-		font-size: 0.5em;
+@media screen and (min-width:2000px) {
+	.grid__item {
+		width: 630px !important;		
 	}
-	.description--preview p,
-	.details {
-		display: none;
+}
+
+
+@media screen and (max-width: 981px) {
+	
+	.action{
+		font-size: 2.5em;
 	}
 }
 
@@ -950,8 +954,9 @@ figure.effect-ming:hover img {
 	padding: 0;
 	float: left;
 	text-align: left;
-	top: 30%;
-	padding-left: 40px;
+	top: 40%;
+	left:8%;
+	padding-left: 33px;
 	
 }
 

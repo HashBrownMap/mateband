@@ -31,8 +31,9 @@ background-color: transparent;
     max-width: 160px;
     position: absolute;
     float: left;
-    padding-left: 40px;
-    padding-top: 10px;
+    left: 8%;
+    padding-left: 30px;
+    padding-top: 20px;
     vertical-align: top;
 }
 
@@ -107,6 +108,7 @@ font-size: 240%;
     padding-top: 1em;
     margin-right: 5em;
     font-size: 160%;
+    font-weight: bold;
 }
 #section2 h5{
     color: #464646;
@@ -262,42 +264,88 @@ a {
     max-width: 250px;}
     #section0 h1{
     
-    font-size:0.7em;
- 
-}
-
-.columns.six{
-    width: 100%;
-    display:block;
-}
-
-#secondslide .text{
-    margin-left: 14em;
-    padding-top: 3em;
-    margin-right: 2em;
-
-}
-
-#secondslide img{ padding-top: 1em;}
-
-
-
-#section2 h5{
-   font-size: 190%;
-
-}
-#section2 img{
-    padding-left: 12em;
-    max-height: 700px;
-}
-
-
-	#section0 h2{
+        font-size:0.7em;
     
-    font-size: 50%;
-   padding-bottom: 0.5em;
-   padding-right: 2em;
- 
-}
+    }
+
+    .columns.six{
+        width: 100%;
+        display:block;
+    }
+
+    #secondslide .text{
+            text-align: left;
+        vertical-align: middle;
+        padding-top: 5em;
+        margin-left: 10em;
+        z-index: 10;
+
+    }
+
+    #secondslide img{ 
+        max-height: 600px;
+        padding-top: 1em;
+        padding-left: 0em;}
+
+    #secondslide h5{
+    font-size: 190%;
+    padding-top: 1em;
+    }
+    #secondslide h2{
+    font-size: 240%;
+    }
+    #secondslide h3{
+            padding-top: 1em;
+        margin-right: 5em;
+        font-size: 160%;
+        font-weight: bold;
+    }
+
+    #thirdslide .text{
+            text-align: left;
+        vertical-align: middle;
+        padding-top: 5em;
+        margin-left: 10em;
+        z-index: 10;
+        margin-right: 5em;
+
+    }
+
+    #thirdslide img{ 
+        max-height: 600px;
+        padding-top: 3em;
+        padding-left: 2em;}
+
+    #thirdslide h5{
+    font-size: 190%;
+    padding-top: 1em;
+    }
+    #thirdslide h2{
+    font-size: 240%;
+    }
+    #thirdslide h3{
+            padding-top: 1em;
+        margin-right: 5em;
+        font-size: 160%;
+        font-weight: bold;
+    }
+
+    #section2 h5{
+    font-size: 190%;
+
+    }
+    #section2 img{
+        padding-left: 12em;
+        max-height: 700px;
+    }
+
+
+        #section0 h2{
+        
+        font-size: 50%;
+    padding-bottom: 0.5em;
+    padding-right: 2em;
+    
+    }
 }
 
