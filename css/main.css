@@ -43,7 +43,7 @@ background-color: transparent;
 #section0 h2{
     
     font-size: 25%;
-   padding-bottom: 0.5em;
+  
  
 }
 
@@ -74,7 +74,6 @@ background-color: transparent;
 .row{
     z-index: 10;
    
-     display: table;
 }
 
 
@@ -104,7 +103,7 @@ font-size: 240%;
 
 #section2 h3{
     
-    
+    color: #D73A31;
     padding-top: 1em;
     margin-right: 5em;
     font-size: 160%;
@@ -168,9 +167,28 @@ font-size: 240%;
  z-index: 1;
 }
 
-#section6{
- z-index: 1;
+
+footer {
+    padding: 5em;
+    color: white;
+    background-color: #08708a;
+
+    bottom: 0%;
 }
+
+footer h4{
+    vertical-align: middle;
+    float:left;
+    padding-top: 48px;
+}
+
+
+footer img{
+    max-width: 100px;
+    max-height: 100px;
+    float:right;
+}
+
 #section5 h1{
     font-size: 3em;
     padding-bottom: 12em;
@@ -347,5 +365,41 @@ a {
     padding-right: 2em;
     
     }
+
+    .columns{
+        align-items: center;
+    }
+    footer h4{
+        float: none;
+        font-size: 130%;
+        text-align:center;
+        padding-bottom: 20px;
+    }
+
+    footer img{
+        float: none;
+        margin: 0 auto;
+    }
 }
+
+#header{
+		position:fixed;
+		height: 120px;
+		display:block;
+		width: 100%;
+		background: transparent;
+		z-index:9;
+		text-align:center;
+		color: #f2f2f2;
+		padding: 20px 0 0 0;
+	}
+
+    #header img{
+        max-width: 100px;
+        max-height: 100px;
+        
+        margin-left: 120px;
+        float: left;
+    }
+
 

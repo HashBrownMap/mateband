@@ -22,8 +22,8 @@
 
         // create points
         points = [];
-        for(var x = 0; x < width; x = x + width/10) {
-            for(var y = 0; y < height; y = y + height/10) {
+        for(var x = 0; x < width; x = x + width/8) {
+            for(var y = 0; y < height; y = y + height/8) {
                 var px = x + Math.random()*width/10;
                 var py = y + Math.random()*height/10;
                 var p = {x: px, originX: px, y: py, originY: py };
@@ -119,13 +119,13 @@
                 // detect points in range
                 if(Math.abs(getDistance(target, points[i])) < 18000) {
                     points[i].active = 0.7;
-                    points[i].circle.active = 1;
+                    points[i].circle.active = 0.9;
                 } else if(Math.abs(getDistance(target, points[i])) < 80000) {
                     points[i].active = 0.5;
-                    points[i].circle.active = 0.3;
+                    points[i].circle.active = 0.6;
                 } else if(Math.abs(getDistance(target, points[i])) < 60000) {
                     points[i].active = 0.2;
-                    points[i].circle.active = 0.1;
+                    points[i].circle.active = 0.4;
                 } else {
                     points[i].active = 0;
                     points[i].circle.active = 0;
