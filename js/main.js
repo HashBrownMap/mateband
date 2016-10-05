@@ -9,7 +9,7 @@
  * http://www.codrops.com
  */
 ;(function(window) {
-
+	
 	'use strict';
 
 	// Helper vars and functions.
@@ -149,7 +149,7 @@
 			// Callback.
 			self.options.onClick();
 		};
-		this.el.addEventListener('click', this._click);
+		//this.el.addEventListener('click', this._click);
 
 		// Window resize.
 		this._throttleResize = throttle(function() {
@@ -219,7 +219,7 @@
 	 * PointsMap obj.
 	 */
 	function PointsMap(el, options) {
-		this.el = document.getElementById('interactive-2');
+		this.el = document.getElementById('interactive-1');
 		// Options/Settings.
 		this.options = extend( {}, this.options );
 		extend( this.options, options );
@@ -291,6 +291,7 @@
 			// Update Document scroll values.
 			docScrolls = {left : document.body.scrollLeft + document.documentElement.scrollLeft, top : document.body.scrollTop + document.documentElement.scrollTop};
 		}, 100);
+		
 		window.addEventListener('resize', this._throttleResize);
 
 		// Close content.
@@ -307,7 +308,7 @@
 			// Show all points.
 			self._pointsAction('show');
 		};
-		this.pointsContentWrapper.addEventListener('click', this._closeContent);
+		//this.pointsContentWrapper.addEventListener('click', this._closeContent);
 
 		// Keyboard navigation events.
 		this.el.addEventListener('keydown', function(ev) {

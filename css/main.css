@@ -22,28 +22,37 @@ background-color: transparent;
 #section0 h1{
     font-weight: 700;
     text-align: center;
+    font-size: 0.7em;
+    
+    
+}
 
-    
-    
+#section0 img{
+    max-width: 200px;
 }
 
 
 
 #section0 h2{
-    padding-top: 1rem;
-    font-size: 50%;
+    
+    font-size: 40%;
     text-align: center;
  
 }
 
-#section2{
- 
-    color: #193446;
+.text {
+    text-align: left;
+    vertical-align: middle;
+    padding-top: 5em;
+    margin-left: 10em;
+    z-index: 10;
 }
+
+
 
 #section1 h1{
     font-size: 300%;
-    padding-bottom: 2.5rem;
+    padding-bottom: 1.5rem;
 }
 
 .column img{
@@ -53,7 +62,7 @@ background-color: transparent;
     height: 100%;
 }
 
-#section1 p{
+#section1 h3{
    font-size: 1.6em;
     line-height: 1.20em;
   
@@ -71,14 +80,14 @@ background-color: transparent;
 }
 
 
+#section2{
+ 
+    color: #193446;
+}
 
-.text{
-   
-    text-align: left;
-    vertical-align:middle;
-    padding-top: 5em;
-    margin-left: 10em;
-    z-index: 10;
+#section2 h1{
+    font-size: 3em;
+    padding-bottom: 0.4em;
 }
 
 #section3{
