@@ -742,7 +742,7 @@ body {
 /* Close button */
 
 .action {
-	font-size: 1.5em;
+	font-size: 1.6em;
 	margin: 0;
 	padding: 0;
 	z-index: 10000;
@@ -751,6 +751,8 @@ body {
 	color: white;
 	border: none;
 	background: none;
+	z-index: 300;
+	padding-top: 15em;
 }
 
 .action:hover,
@@ -765,6 +767,7 @@ body {
 	top: 0;
 	left: 0;
 	padding: 1em;
+	padding-top: 7em;
 	opacity: 0;
 	-webkit-transition: opacity 0.3s, -webkit-transform 0.3s;
 	transition: opacity 0.3s, transform 0.3s;
