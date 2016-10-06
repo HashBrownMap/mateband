@@ -3,21 +3,40 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-
+	<meta property="og:image" content="images/m8.png" />
+	<link rel='shortcut icon' type='image/x-icon' href='images/m8.png' />
     <title>Mate Band</title>
     <link rel="stylesheet" href="css/reset.css">
      <link rel="stylesheet" href="css/pills.min.css">
-    <link rel="stylesheet" type="text/css" href="fonts/feather/style.css">
-	<link rel="stylesheet" type="text/css" href="css/component.css" />
+	
 	<link rel="stylesheet" href="css/main.css">
 	<link rel="stylesheet" type="text/css" href="css/jquery.fullPage.css" />
-    
-    
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script> <!-- for JQuery -->
-    <script src="scripts/modernizr.custom.js"></script>
+	<link rel="stylesheet" type="text/css" href="fonts/font-awesome-4.6.3/css/font-awesome.min.css" />
+	<link rel="stylesheet" type="text/css" href="fonts/feather/style.css">
+	<link rel="stylesheet" type="text/css" href="css/component.css" />
+	<link rel="stylesheet" href="css/animate.css">
+	
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script> <!-- for JQuery -->
+	<script src="js/modernizr-custom.js"></script>
+	<script src="js/modernizr.custom.js"></script>
+	<script src="js/wow.min.js"></script>
+	<script>
+		new WOW().init();
+	</script>
     <!--[if lt IE 9]>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.js"></script>
     <![endif]-->
+
+	<script>
+		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+		(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+		m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+		})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+		ga('create', 'UA-85331135-1', 'auto');
+		ga('send', 'pageview');
+
+	</script>
 
 </head>
 
@@ -30,200 +49,417 @@
     <li data-menuanchor="4thpage"><a href="#4thpage">Fourth section</a></li>
 </ul> -->
 
+
 <div id="fp-nav" class="right">
 	<ul >
-		<li><a href="#top" class="active"><span></span></a><div class="fp-tooltip right">TOP</div></li>
-		<li><a href="#concept" class=""><span></span></a><div class="fp-tooltip right">CONCEPT</div></li>
-		<li><a href="#gallery" class=""><span></span></a><div class="fp-tooltip right">FEATURES</div></li>
-		<li><a href="#about" class=""><span></span></a><div class="fp-tooltip right">ADDITIONAL</div></li>
-		<li><a href="#contact" class=""><span></span></a><div class="fp-tooltip right">ABOUT</div></li> 
-		<li><a href="#contact" class=""><span></span></a><div class="fp-tooltip right">CONTACT</div></li></ul></div></ul>
+		<li><a href="#firstPage" ><span></span></a><div class="fp-tooltip right">Home</div></li>
+		<li><a href="#secondPage" ><span></span></a><div class="fp-tooltip right">Use Case</div></li>
+		<li><a href="#3rdPage" ><span></span></a><div class="fp-tooltip right">Technologies</div></li>
+	
+		<li><a href="#5thpage" ><span></span></a><div class="fp-tooltip right">About</div></li>
+		
+		</ul>
+	</div>
+<div id="header"><img src="images/m8.png" alt=""><nav class="menu menu--iris">
+					<ul class="menu__list">
+						<li class="menu__item"><a href="#firstPage" class="menu__link">Home</a></li>
+						<li class="menu__item"><a href="#secondPage" class="menu__link">Use case</a></li>
+						<li class="menu__item"><a href="#3rdPage" class="menu__link">Technologies</a></li>
+						<li class="menu__item"><a href="#5thpage" class="menu__link">Contact</a></li>
+					
+					</ul>
+				</nav> </div>
 
 <div id="fullpage">
-
-    <div class="section active" id="section0">
-        <h1>MATEBAND</h1>
-        <h2>Safe,Together</h2>
-    </div>
-    <div class="section" id="section1">
-        <div class="intro">
-            <div class="row">
-                <h1>CONCEPT</h1>
-                <div class="two column"></div>
-                <p class="eight column">Designed to be integrated with the wristband that is given to all festival attendees, the MateBand will be aimed to be an integral part of the experience and provide convenience for both festival organizers and attendees.</p>
-                
-            </div>
-        </div>
-    </div>
-    <div class="section" id="section2">
-		<h1>MAIN FEATURES</h1>
+	
+	<div class="section active" id="section0">
 		
-        <section class="slider">
-			<div class="slides slide--current" data-content="content-1">
-				<div class="slide__mover">
-					<div class="zoomer flex-center">
-						<img class="zoomer__image" src="images/iphone.png" alt="iPhone" />
-						<div class="preview">
-							<img src="images/iphone-content-preview.png" alt="iPhone app preview" />
-							<div class="zoomer__area zoomer__area--size-2"></div>
+			<!--	<h1>mateband</h1>
+				<h2>Safe, Together</h2> -->
+				<div id="large-header" class="large-header">
+					
+
+				
+					<canvas id="demo-canvas"></canvas>
+						
+					
+						<div class="main-title">
+							<h1 class="wow animated fadeIn" data-wow-delay="0.2s">Staying safe just got simpler.</h1>
+							<!--<h1>mate<span class="thin">band</span></h1> --> 
+							<!--<img src="images/m8.png" alt=""> -->
+							<h2 class="wow animated fadeInUp" data-wow-delay="0.8s">Introducing, <span style="font-weight:bold">MateBand</span>.</h2>
+							<h2 class="wow animated fadeInUp" data-wow-delay="0.8s">	Connecting you to who matters most.</h2>
+							<h2 style="padding-top: 0.8em" class="wow animated fadeInUp" data-wow-delay="1.2s">	Your safety should not be a compromise.
+							</h2>
+							<a href="https://www.facebook.com/mviii.band/" target="_blank" ><i class="fa fa-facebook wow animated fadeInUp" style="font-size: 0.45em; margin-bottom:-1em;" data-wow-delay="1.5s" ></i></a>
+							<a href="https://twitter.com/m8_Band" target="_blank"><i class="fa fa-twitter wow animated fadeInUp" style="font-size: 0.45em;" data-wow-delay="1.5s"></i></a>
+							<a href="https://www.instagram.com/m8band/" target="_blank"><i class="fa fa-instagram wow animated fadeInUp"   style="font-size: 0.45em;"  data-wow-delay="1.5s"></i></a>
+			
+							<a href="https://medium.com/m8band" target="_blank"><i class="fa fa-medium wow animated fadeInUp" style="font-size: 0.45em;" data-wow-delay="1.5s"></i></a>
+							
 						</div>
 					</div>
-				</div>
-				<h2 class="slide__title"><span>The Classy</span> iPhone 6</h2>
-			</div>
-			<div class="slides" data-content="content-2">
-				<div class="slide__mover">
-					<div class="zoomer flex-center">
-						<img class="zoomer__image" src="images/ipad.png" alt="iPad Mini" />
-						<div class="preview">
-							<img src="images/ipad-content-preview.png" alt="iPad Mini app preview" />
-							<div class="zoomer__area zoomer__area--size-4"></div>
-						</div>
-					</div>
-				</div>
-				<h2 class="slide__title"><span>The Fantastic</span> iPad Mini</h2>
-			</div>
-			<div class="slides" data-content="content-3">
-				<div class="slide__mover">
-					<div class="zoomer flex-center">
-						<img class="zoomer__image" src="images/macbook.png" alt="MacBook" />
-						<div class="preview">
-							<img src="images/macbook-content-preview.jpg" alt="MacBook app preview" />
-							<div class="zoomer__area zoomer__area--size-3"></div>
-						</div>
-					</div>
-				</div>
-				<h2 class="slide__title"><span>The Amazing</span> MacBook</h2>
-			</div>
-			<div class="slides" data-content="content-4">
-				<div class="slide__mover">
-					<div class="zoomer flex-center">
-						<img class="zoomer__image" src="images/imac.png" alt="iMac" />
-						<div class="preview">
-							<img src="images/imac-content-preview.jpg" alt="iMac app preview" />
-							<div class="zoomer__area zoomer__area--size-5"></div>
-						</div>
-					</div>
-				</div>
-				<h2 class="slide__title"><span>The Glorious</span> iMac</h2>
-			</div>
-			<div class="slides" data-content="content-5">
-				<div class="slide__mover">
-					<div class="zoomer flex-center">
-						<img class="zoomer__image" src="images/apple-watch.png" alt="Apple Watch" />
-						<div class="preview rounded">
-							<img src="images/apple-watch-content-preview.png" alt="Apple Watch app preview" />
-							<div class="zoomer__area zoomer__area--size-1"></div>
-						</div>
-					</div>
-				</div>
-				<h2 class="slide__title"><span>The Fabulous</span> Apple Watch</h2>
-			</div>
-			<nav class="slider__nav">
-				<button class="button button--nav-prev"><i class="icon icon--arrow-left"></i><span class="text-hidden">Previous product</span></button>
-				<button class="button button--zoom"><i class="icon icon--zoom"></i><span class="text-hidden">View details</span></button>
-				<button class="button button--nav-next"><i class="icon icon--arrow-right"></i><span class="text-hidden">Next product</span></button>
-			</nav>
-		</section>
-		<!-- /slider-->
-		<section class="content">
-			<div class="content__item" id="content-1">
-				<img class="content__item-img rounded-right" src="images/iphone-content.png" alt="Apple Watch Content" />
-				<div class="content__item-inner">
-					<h2>The iPhone 6</h2>
-					<h3>Incredible performance for powerful apps</h3>
-					<p>Built on 64-bit desktop-class architecture, the new A8 chip delivers more power, even while driving a larger display. The M8 motion coprocessor efficiently gathers data from advanced sensors and a new barometer. And with increased battery life, iPhone 6 lets you do more, for longer than ever.</p>
-					<p><a href="https://www.apple.com/iphone-6/technology/">Learn more about this technology &xrarr;</a></p>
-				</div>
-			</div>
-			<div class="content__item" id="content-2">
-				<img class="content__item-img rounded-right" src="images/ipad-content.jpg" alt="iPad Mini Content" />
-				<div class="content__item-inner">
-					<h2>The iPad Mini</h2>
-					<h3>Desktop-class architecture without a desktop</h3>
-					<p>Don’t let its size fool you. iPad mini 3 is powered by an A7 chip with 64-bit desktop-class architecture. A7 delivers amazing processing power without sacriﬁcing battery life. So you get incredible performance in a device you can take with you wherever you go.</p>
-					<p><a href="https://www.apple.com/ipad-mini-3/performance/">Learn more about Performance &xrarr;</a></p>
-				</div>
-			</div>
-			<div class="content__item" id="content-3">
-				<img class="content__item-img rounded-right" src="images/macbook-content.jpg" alt="MacBook Content" />
-				<div class="content__item-inner">
-					<h2>The MacBook</h2>
-					<h3>It's the future of the notebook</h3>
-					<p>With the new MacBook, we set out to do the impossible: engineer a full-size experience into the lightest and most compact Mac notebook ever. That meant reimagining every element to make it not only lighter and thinner but also better. The result is more than just a new notebook. It's the future of the notebook.</p>
-					<p><a href="https://www.apple.com/macbook/design/">Learn more about the design &xrarr;</a></p>
-				</div>
-			</div>
-			<div class="content__item" id="content-4">
-				<img class="content__item-img rounded-right" src="images/imac-content.jpg" alt="iMac Content" />
-				<div class="content__item-inner">
-					<h2>The iMac</h2>
-					<h3>Engineered to the very last detail</h3>
-					<p>Every new Mac comes with Photos, iMovie, GarageBand, Pages, Numbers, and Keynote. So you can be creative with your photos, videos, music, documents, spreadsheets, and presentations right from the start. You also get great apps for email, surfing the web, sending texts, and making FaceTime calls — there’s even an app for finding new apps.</p>
-					<p><a href="https://www.apple.com/imac/built-in-apps/">Learn more about the iMac's features &xrarr;</a></p>
-				</div>
-			</div>
-			<div class="content__item" id="content-5">
-				<img class="content__item-img rounded-right" src="images/apple-watch-content.png" alt="Apple Watch Content" />
-				<div class="content__item-inner">
-					<h2>The Apple Watch</h2>
-					<h3>Entirely new ways to stay in touch</h3>
-					<p>Apple Watch makes all the ways you're used to communicating more convenient. And because it sits right on your wrist, it can add a physical dimension to alerts and notifications. For example, you’ll feel a gentle tap with each incoming message. Apple Watch also lets you connect with your favorite people in fun, spontaneous ways — like sending a tap, a sketch, or even your heartbeat. </p>
-					<p><a href="https://www.apple.com/watch/new-ways-to-connect/">Learn more about new ways to connect &xrarr;</a></p>
-				</div>
-			</div>
-			<button class="button button--close"><i class="icon icon--circle-cross"></i><span class="text-hidden">Close content</span></button>
-		</section>
-    </div>
-    <div class="section" id="section3">
-        <div class="intro">
-            <h1>Additional Features</h1>
-            <p>
-            
-            </p>
-        </div>
+		
+		</div>
+
+    
+    <div class="section" id="section1">
         
+			<h1 class="wow animated fadeIn" data-wow-delay="0.5s">Stay safe at...</h1>
+				<div class="grid">
+					<div class="grid__item" data-size="2280x1227">
+					<figure class="effect-ming">
+					<a href="images/carnival.jpg" class="img-wrap"><img src="images/carnival.jpg" alt="img06" class="wow slideInUp" />
+						<figcaption>
+							<h2> <span>Carnival</span></h2>
+							<p>Click for details </p>
+							
+						</figcaption>			
+					</figure>
+						<div class="description description--grid">
+							<h3>Carnival</h3>
+							<p>Vibrant colours, heart-pumping music, good friends, good alcohol, the most wonderful time of the year - Carnival!</p>
+							<p>Stay safe and hydrated with the help of MateBand, and never miss a beat! </p>
+						
+						</div>
+					</a>
+				</div>
+                	<div class="grid__item" data-size="2280x1227">
+						<figure class="effect-ming">
+							<a href="images/coachella.jpg" class="img-wrap"><img src="images/coachella.jpg" alt="img06" class="wow slideInLeft" data-wow-delay="0.2s" />
+						<figcaption>
+							<h2><span>Festivals</span></h2>
+							<p> Click for details </p>
+							
+						</figcaption>			
+						</figure>
+						<div class="description description--grid">
+							<h3>Large-Scale Festivals</h3>
+							<p>Festivals are a great way to spend time with friends, meet new people, and let your inhibitions lose!</p>
+							<p>MateBand ensures that you will stay hydrated throughout the festival and connected to security if ever you need help! </p>
+						
+						</div>
+					</a>
+				</div>
+				<div class="grid__item" data-size="1280x1280">
+					<figure class="effect-ming">
+					<a href="images/hajj.jpg" class="img-wrap"><img src="images/hajj.jpg" alt="img07" class="wow slideInDown"/>
+						<figcaption>
+							<h2> <span>Pilgrimages</span></h2>
+							<p>Click for details </p>
+							
+						</figcaption>			
+					</figure>
+						<div class="description description--grid">
+							<h3>Pilgrimages</h3>
+							<p>Traveling to Holy landmarks is a time of serenity and peace. Often times, many pilgrimages have millions of people and losing your loved ones amongst the crowd should be the last of your worries.</p> 
+							<p>Mateband will help you keep in constant connection with those who matter the most. </p>
+							
+						</div>
+					</a>
+				</div>
+				<div class="grid__item" data-size="2280x1227">
+					<figure class="effect-ming">
+					<a href="images/race.jpg" class="img-wrap"><img src="images/race.jpg" alt="img06" class="wow slideInRight"/>
+						<figcaption>
+							<h2>Large Scale <span>Sporting Events</span></h2>
+							<p>Click for details </p>
+							
+						</figcaption>			
+					</figure>
+						<div class="description description--grid">
+							<h3>Sporting Events</h3>
+							<p>About to run your first marathon? Make sure you stay hydrated with the help of MateBand. 
+
+								Stay connected with friends, family, or on-site medical personnel along the route!</p> 
+
+								<p>MateBand also has the ability to manage crowds at large sporting events such. </p>
+						
+						</div>
+					</a>
+				</div>
+				
+				<div class="grid__item" data-size="2280x1227">
+					<figure class="effect-ming">
+					<a href="images/hp.jpg" class="img-wrap"><img src="images/hp.jpg" alt="img06" class="wow slideInRight" data-wow-delay="0.2s"/>
+						<figcaption>
+							<h2>Amusement <span>Parks</span></h2>
+							<p>Click for details </p>
+						
+						</figcaption>			
+					</figure>
+						<div class="description description--grid">
+							<h3>Amusement Parks</h3>
+							<p>Losing a child amidst a large-crowd may be the scariest moment for a parent or guardian. With MateBand, you never have to worry about the safety of your child. </p> 
+							<p>Receive alerts from your children if they are ever in need of help - and be instantly connected to them through the help of MateBand. </p>
+						
+						</div>
+					</a>
+				</div>
+				<div class="grid__item" data-size="2280x1227">
+					<figure class="effect-ming">
+					<a href="images/work.jpg" class="img-wrap"><img src="images/work.jpg" alt="img06" class="wow slideInLeft" />
+						<figcaption>
+							<h2><span>Workplaces</span></h2>
+							<p>Click for details </p>
+							
+						</figcaption>			
+					</figure>
+						<div class="description description--grid">
+							<h3>Workplaces</h3>
+							<p>Safety at the workplace should be a given. Unfortunately, many vocations such as mining, industrial, or over-night jobs are not risk-free.</p>
+							<p>With MateBand, a call for safety will always be heard. No phone? No problem. MateBand has got you covered. </p>
+						
+						</div>
+					</a>
+				</div>
+				</div>
+			<div class="previews">
+				<button class="action action--close"><i class="fa fa-times"></i><span class="text-hidden">Close</span></button>
+			<div class="description description--preview"></div>
+		</div>
     </div>
+
+    <div class="section" id="section2" >
+		<div class="slide" id="firstslide">
+		<div class="row">
+			<div class="six columns">
+				<div class="text">
+				<h2>THE WEARABLE</h2>
+                <h3>Panic Button</h3>
+				<h5>Users can notify security or medical personnel whenever they feel unsafe or uncomfortable during the event and get assistance on demand.</h5>
+				<h3>Hydration Alerts</h3>
+                <h5>Via a real-time location tracking system and a compatible smartphone app, users will receive alerts on their wearable when nearing hydration stations to make sure they stay hydrated throughout the event.</h5>
+				</div>
+			</div>
+			<div class="six columns"><img src="images/icons.png" alt=""></div>
+		</div>
+		</div>
+		<div class="slide" id="secondslide">
+		<div class="row">
+			<div class="six columns"><img src="images/maps.png" alt=""></div>
+			<div class="six columns">
+				<div class="text">
+				<h2>THE APPLICATION</h2>
+				<h3>Map</h3>
+				<h5>A smartphone application communicates with connected beacons to locate hydration stations, both stationary and on the move. </h5>
+				<h5>Users are provided with a map to help them navigate to their closest station.</h5>
+				</div>
+			</div>
+			
+		</div>
+		</div>
+		<div class="slide" id="thirdslide">
+		<div class="row">
+			<div class="six columns">
+				<div class="text">
+				<h2>THE DASHBOARD</h2>
+                <h3>Emergency Response</h3>
+                <h5>An  interactive user interface for swift crowd-management that is designed for on-site security and medical personnel. </h5>
+				<h5>Once a user activates the panic button, management will receive an alert for first response.</h5>
+				
+				</div>
+			</div>
+			<div class="six columns"><img src="images/monitor.png" alt=""></div>
+		</div>
+		</div> 
+    </div>
+		
+
+		<!--
+    <div class="section" id="section3">
+      <section class="interactive-points interactive-points--alter" id="interactive-1" tabindex="0">
+				<img class="static" src="images/map.png" alt="Map of London" />
+				<div class="backgrounds">
+					<div class="background__element" style="background-image: url(images/1.jpg)"></div>
+					<div class="background__element" style="background-image: url(images/2.jpg)"></div>
+					<div class="background__element" style="background-image: url(images/3.jpg)"></div>
+					<div class="background__element" style="background-image: url(images/4.jpg)"></div>
+					<div class="background__element" style="background-image: url(images/5.jpg)"></div>
+					<div class="background__element" style="background-image: url(images/6.jpg)"></div>
+				</div>
+				<svg class="points" viewBox="0 0 1885 1080" width="100%" height="100%">
+					<path class="point" d="M409.2,195.4L409.2,195.4c-7.1-7.1-18.6-7.1-25.7,0l0,0c-6.4,6.4-7.1,18.4-1.7,25.7l14.5,21l14.5-21C416.3,213.8,415.6,201.8,409.2,195.4z"/>
+					<path class="point" d="M1069.3,589.7L1069.3,589.7c-7.1-7.1-18.6-7.1-25.7,0l0,0c-6.4,6.4-7.1,18.4-1.7,25.7l14.5,21l14.5-21C1076.4,608.2,1075.7,596.1,1069.3,589.7z"/>
+					<path class="point" d="M1533.8,114.2L1533.8,114.2c-7.1-7.1-18.6-7.1-25.7,0l0,0c-6.4,6.4-7.1,18.4-1.7,25.7l14.5,21l14.5-21C1541,132.6,1540.2,120.6,1533.8,114.2z"/>
+					<path class="point" d="M878.9,247.4L878.9,247.4c-7.1-7.1-18.6-7.1-25.7,0l0,0c-6.4,6.4-7.1,18.4-1.7,25.7l14.5,21l14.5-21C886,265.8,885.3,253.8,878.9,247.4z"/>
+					<path class="point" d="M615.2,658.3L615.2,658.3c-7.1-7.1-18.6-7.1-25.7,0l0,0c-6.4,6.4-7.1,18.4-1.7,25.7l14.5,21l14.5-21C622.3,676.8,621.6,664.7,615.2,658.3z"/>
+					<path class="point" d="M183.5,524L183.5,524c-7.1-7.1-18.6-7.1-25.7,0l0,0c-6.4,6.4-7.1,18.4-1.7,25.7l14.5,21l14.5-21C190.6,542.5,189.9,530.4,183.5,524z"/>
+				</svg>
+				<div class="points-tooltips">
+					<div class="point-tooltip"><h2 class="point-tooltip__title">Luke Skywalker</h2><br><p class="point-tooltip__description">Newly added friend</p></div>
+					<div class="point-tooltip"><h2 class="point-tooltip__title">Hailey G.</h2><br><p class="point-tooltip__description">Friend</p></div>
+					<div class="point-tooltip"><h2 class="point-tooltip__title">Tom Chen</h2><br><p class="point-tooltip__description">Best Friend</p></div>
+					<div class="point-tooltip"><h2 class="point-tooltip__title">MIA Stage</h2><br><p class="point-tooltip__description">Lit</p></div>
+					<div class="point-tooltip"><h2 class="point-tooltip__title">Water fountain</h2><br><p class="point-tooltip__description">Stay hydrated</p></div>
+					<div class="point-tooltip"><h2 class="point-tooltip__title">First Aid</h2><br><p class="point-tooltip__description">No need to panic</p></div>
+				</div>
+				<div class="points-content">
+					<div class="point-content">
+						
+					</div>
+					<div class="point-content">
+						
+					</div>
+					<div class="point-content">
+						
+					</div>
+					<div class="point-content">
+					
+					</div>
+					<div class="point-content">
+						
+					</div>
+					<div class="point-content">
+						<h3 class="point-content__title">First Aid</h3>
+						
+						<p class="point-content__text">Locate medical staff with ease!</p>
+					</div>
+				</div>
+			</section>
+
+        
+    </div> -->
+
         <div class="section" id="section4">
         <div class="intro">
-            <h1>About Us</h1>
-            <p>
-                
-            </p>
+				<h1 class="wow animated fadeIn" data-wow-delay="0.3s">Say <a href="mailto:hello@m8band.com">hello@m8band.com</a></h1>
+    
         </div>
-       
-    </div>
-        <div class="section" id="section5">
-        <div class="intro">
-            <h1>Contact</h1>
-            <p>
-                
-            </p>
-        </div>
+		
 
     </div>
+
+	<div class="section fp-auto-height">
+		<footer>
+			<div class="row">
+				<div class="six columns">
+					<h4>Copyright © 2016 rhodium. All Rights Reserved.</h4>
+				</div>
+				<div class="six columns" id="rhodium">
+					<a target="_blank" href="http://www.rhodium.io/"> <img src="images/rh.png" alt=""> </a><h4>a venture by rhodium</h4>
+				</div>
+			</div>
+
+		</footer>
+	</div>
 </div>
 
-	<script src="scripts/classie.js"></script>
-	<script src="scripts/dynamics.min.js"></script>
-	<script src="scripts/main.js"></script>
 
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-<script type="text/javascript" src="scripts/jquery.fullPage.min.js"></script>
-<script type="text/javascript">
-    $(document).ready(function() {
-        $('#fullpage').fullpage({
-            sectionsColor: ['#002859', '#002859', '#002859', '#002859', '#002859', '#002859'],
-            anchors: ['firstPage', 'secondPage', '3rdPage', '4thpage', '5thpage', 'lastPage'],
-            menu: '#menu',
-            css3: true,
-            scrollingSpeed: 800
-        });
+	<script src="js/classie.js"></script>
+	<script src="js/dynamics.min.js"></script>
+	
+	
+	
+	<script src="js/TweenLite.min.js"></script>
+		<script src="js/EasePack.min.js"></script>
+		<script src="js/rAF.js"></script>
+		<script src="js/demo-1.js"></script>
 
 
-    });
-</script>
+	
 
+	<script src="js/masonry.pkgd.min.js"></script>
+	<script src="js/lunar.js"></script>
+	<script src="js/imagesloaded.pkgd.min.js"></script>
+	<script src="js/map.js"></script>
+	<script src="js/grid.js"></script>
+	<script src="js/clipboard.min.js"></script>
+
+	<script>
+	/*	function load() {
+			new PointsMap(document.querySelector('#interactive-1'));
+			
+			
+		}
+		window.onload = load; */
+		
+		</script>
+
+			<script src="js/fullpage.responsiveSlides.min.js"></script>
+			<script type="text/javascript" src="js/fullpage.scrollHorizontally.min.js"></script>
+	<script type="text/javascript" src="js/jquery.fullPage.min.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function() {
+			$('#fullpage').fullpage({
+				sectionsColor: ['#fbfbfb', '#fbfbfb', '#fbfbfb', '#fbfbfb', '#fbfbfb'],
+				anchors: ['firstPage', 'secondPage', '3rdPage', '4thpage', '5thpage'],
+				menu: '#menu',
+				css3: true,
+				scrollingSpeed: 800,
+				slidesNavigation: true,
+				slidesToSections: true,
+				scrollHorizontally: true,
+				controlArrows: false,
+				responsiveWidth: 1000,
+				responsiveSlides:true,
+				scrollBar:true
+				
+				//design
+
+			});
+			
+
+		});
+	</script>
+	<script>
+		(function() {
+			var support = { transitions: Modernizr.csstransitions },
+				// transition end event name
+				transEndEventNames = { 'WebkitTransition': 'webkitTransitionEnd', 'MozTransition': 'transitionend', 'OTransition': 'oTransitionEnd', 'msTransition': 'MSTransitionEnd', 'transition': 'transitionend' },
+				transEndEventName = transEndEventNames[ Modernizr.prefixed( 'transition' ) ],
+				onEndTransition = function( el, callback ) {
+					var onEndCallbackFn = function( ev ) {
+						if( support.transitions ) {
+							if( ev.target != this ) return;
+							this.removeEventListener( transEndEventName, onEndCallbackFn );
+						}
+						if( callback && typeof callback === 'function' ) { callback.call(this); }
+					};
+					if( support.transitions ) {
+						el.addEventListener( transEndEventName, onEndCallbackFn );
+					}
+					else {
+						onEndCallbackFn();
+					}
+				};
+
+			new GridFx(document.querySelector('.grid'), {
+				imgPosition : {
+					x : -0.5,
+					y : 1
+				},
+				onOpenItem : function(instance, item) {
+					instance.items.forEach(function(el) {
+						if(item != el) {
+							var delay = Math.floor(Math.random() * 50);
+							el.style.WebkitTransition = 'opacity .5s ' + delay + 'ms cubic-bezier(.7,0,.3,1), -webkit-transform .5s ' + delay + 'ms cubic-bezier(.7,0,.3,1)';
+							el.style.transition = 'opacity .5s ' + delay + 'ms cubic-bezier(.7,0,.3,1), transform .5s ' + delay + 'ms cubic-bezier(.7,0,.3,1)';
+							el.style.WebkitTransform = 'scale3d(0.1,0.1,1)';
+							el.style.transform = 'scale3d(0.1,0.1,1)';
+							el.style.opacity = 0;
+						}
+					});
+				},
+				onCloseItem : function(instance, item) {
+					instance.items.forEach(function(el) {
+						if(item != el) {
+							el.style.WebkitTransition = 'opacity .4s, -webkit-transform .4s';
+							el.style.transition = 'opacity .4s, transform .4s';
+							el.style.WebkitTransform = 'scale3d(1,1,1)';
+							el.style.transform = 'scale3d(1,1,1)';
+							el.style.opacity = 1;
+
+							onEndTransition(el, function() {
+								el.style.transition = 'none';
+								el.style.WebkitTransform = 'none';
+							});
+						}
+					});
+				}
+			});
+		})();
+	</script>
 
 </body>
 </html>

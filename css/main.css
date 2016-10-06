@@ -1,69 +1,199 @@
 @font-face {
-font-family:Ailerons;
-src: url("../fonts/Ailerons-Typeface.otf") format("opentype");
+font-family:Pier Sans;
+src: url("../fonts/pier.otf") format("opentype");
 }
 
 body{
-    font-family: Ailerons, sans-serif;
-    color: rgb(210, 196, 167);
+    font-family: Pier Sans, sans-serif;
+    color: #193446;
     text-align: center;
+    background-color: transparent;
+    overflow: hidden; 
 } 
 
 #section0{
-  
-    color: rgb(210, 196, 167);
+background-color: transparent;
+    color: #193446;
     font-size: 6em;
-    padding-bottom: 3rem;
+    overflow: hidden;
+    
 }
 
-#section0 h2{
-    padding-top: 1rem;
-    font-size: 50%;
+#section0 h1{
+    font-weight: 700;
+    padding-bottom: 0.5em;
+    font-size: 0.5em;
+    
+    
 }
+
+#section0 img{
+    max-width: 160px;
+    position: absolute;
+    float: left;
+    left: 8%;
+    padding-left: 30px;
+    padding-top: 20px;
+    vertical-align: top;
+}
+
+
+
+
+#section0 h2{
+    
+    font-size: 25%;
+  
+ 
+}
+
+.text {
+    text-align: left;
+    vertical-align: middle;
+    padding-top: 5em;
+    margin-left: 10em;
+    z-index: 10;
+}
+
+
+
+
+
+.column img{
+    display: block;
+    position: relative; 
+    width: 100%;
+    height: 100%;
+}
+
+
+#section1{
+ z-index: 1;
+}
+
+.row{
+    z-index: 10;
+   
+}
+
 
 #section1{
  
-    color: rgb(210, 196, 167);
+    color: #193446;
 }
 
 #section1 h1{
-    font-size: 400%;
-    padding-bottom: 4rem;
+    font-size: 3em;
+    padding-bottom: 0.4em;
 }
 
-#section1 p{
-    line-height: 1.66em;
-    font-size: 200%;
-    color: white;
-}
+
 
 #section2 h1{
     
-    font-size: 3em;
-	padding-bottom: 5rem;
+	font-size: 3em;
+    
 }
 #section2 h2{
-    color: white;
-	font-size: 2em;
+    
+font-size: 240%;
+    
+    padding-top: 0.8em;
+}
+
+#section2 h3{
+    
+    color: #D73A31;
+    padding-top: 1em;
+    margin-right: 5em;
+    font-size: 160%;
+    font-weight: bold;
+}
+#section2 h5{
+    color: #464646;
+    
+    padding-top: 1em;
+    margin-right: 5em;
+    font-size: 110%;
+}
+#secondslide img{
+    padding-right: 0;
+    padding-left: 10em;
+
+    padding-top: 0em;
+}
+#secondslide .text{
+    margin-left: 0em;
+    padding-top: 6em;
+    margin-right: 7em;
+
+}
+
+#section2 img{
+    padding-right:  10em;
+    padding-top: 5em;
+    left: 0;
+    z-index: 8;
+    max-height: 400px;
+    
 }
 
 
-#section2 span{
-    color: rgb(210, 196, 167);
-    font-size: 50%;
+.bg-text {
+   
+    z-index: -5;
+    font-weight: bold;
+    font-size: 21em;
+    color: #f5f5f5;
+   overflow: hidden;
+    padding: 0;
+    padding-left: 0.3em;h
+    margin: 0;
+    bottom: 220px;
+    left:0;
+    position: absolute;
+    letter-spacing: 2px;
+    
+    
 }
 
-
-
-#section3 h1{
-    font-size: 3em;
-    padding-bottom: 12em;
-}
 
 #section4 h1{
     font-size: 3em;
-    padding-bottom: 12em;
+    
 }
+
+#section5{
+ z-index: 1;
+}
+
+
+footer {
+    padding: 5em;
+    color: white;
+    background-color: #08708a;
+
+    bottom: 0%;
+}
+
+footer h4{
+    vertical-align: middle;
+    float:left;
+    padding-top: 48px;
+}
+
+
+footer img{
+    max-width: 100px;
+    max-height: 100px;
+    float:right;
+}
+
+#rhodium h4{
+    float:right;
+    padding-right: 12px;
+}
+
 #section5 h1{
     font-size: 3em;
     padding-bottom: 12em;
@@ -92,7 +222,7 @@ element.style {
 
 
 *::selection {
-    background: #d2c4a7!important;
+    background: #fbfbfb!important;
 }
 #fp-nav ul li a, .fp-slidesNav ul li a {
     display: block !important;
@@ -104,7 +234,7 @@ element.style {
     text-decoration: none !important;
 }
 a {
-    color: #FFF;
+    color: #193446;
     text-decoration: none !important;
     -webkit-tap-highlight-color: rgba(0,0,0,0) !important;
 }
@@ -114,7 +244,7 @@ a {
     width: 13px !important; 
     transform: rotate(-45deg) !important;
     margin: -4px 0px 0px -4px !important;
-    background: rgb(255, 255, 255) !important;
+    background: #193446 !important;
 }
 
 #fp-nav ul li:hover a span {
@@ -128,7 +258,7 @@ a {
     width: 9px !important;
     left: 50% !important;
     top: 50% !important;
-    background: rgb(210, 196, 167) !important;
+    background: #193446 !important;
     margin: -2px 0px 0px -2px !important;
 }
 #fp-nav ul li a span, .fp-slidesNav ul li a span {
@@ -146,9 +276,141 @@ a {
     text-decoration: none !important;
 }
 a {
-    color: #FFF;
+    color: #193446;
     text-decoration: none !important;
     -webkit-tap-highlight-color: rgba(0,0,0,0) !important;
 }
 
  
+@media only screen and (max-width : 990px) {
+    #section0 img {
+    max-width: 250px;}
+    #section0 h1{
+    
+        font-size:0.7em;
+    
+    }
+
+    .columns.six{
+        width: 100%;
+        display:block;
+    }
+
+    #secondslide .text{
+            text-align: left;
+        vertical-align: middle;
+        padding-top: 5em;
+        margin-left: 10em;
+        z-index: 10;
+
+    }
+
+    #secondslide img{ 
+        max-height: 600px;
+        padding-top: 1em;
+        padding-left: 0em;}
+
+    #secondslide h5{
+    font-size: 190%;
+    padding-top: 1em;
+    }
+    #secondslide h2{
+    font-size: 240%;
+    }
+    #secondslide h3{
+            padding-top: 1em;
+        margin-right: 5em;
+        font-size: 160%;
+        font-weight: bold;
+        color: #D73A31;
+    }
+
+    #thirdslide .text{
+            text-align: left;
+        vertical-align: middle;
+        padding-top: 5em;
+        margin-left: 10em;
+        z-index: 10;
+        margin-right: 5em;
+
+    }
+
+    #thirdslide img{ 
+        max-height: 600px;
+        padding-top: 3em;
+        padding-left: 2em;}
+
+    #thirdslide h5{
+    font-size: 190%;
+    padding-top: 1em;
+    }
+    #thirdslide h2{
+    font-size: 240%;
+    }
+    #thirdslide h3{
+            padding-top: 1em;
+        margin-right: 5em;
+        font-size: 160%;
+        font-weight: bold;
+        color: #D73A31;
+    }
+
+    #section2 h5{
+    font-size: 190%;
+
+    }
+    #section2 img{
+        padding-left: 12em;
+        max-height: 700px;
+    }
+
+
+        #section0 h2{
+        
+        font-size: 50%;
+    padding-bottom: 0.5em;
+    padding-right: 2em;
+    
+    }
+
+    .columns{
+        align-items: center;
+    }
+    footer h4{
+        float: none;
+        font-size: 130%;
+        text-align:center;
+        padding-bottom: 20px;
+    }
+
+    #rhodium h4{
+    float:none;
+}
+
+    footer img{
+        float: none;
+        margin: 0 auto;
+    }
+}
+
+#header{
+		position:fixed;
+		height:20px;
+		display:block;
+		width: 100%;
+		background: transparent;
+		z-index:9;
+		text-align:center;
+		color: #f2f2f2;
+		padding: 20px 0 0 0;
+	}
+
+    #header img{
+        max-width: 100px;
+        max-height: 100px;
+        
+        margin-left: 120px;
+        float: left;
+    }
+
+
