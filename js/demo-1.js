@@ -22,10 +22,10 @@
 
         // create points
         points = [];
-        for(var x = 0; x < width; x = x + width/8) {
-            for(var y = 0; y < height; y = y + height/8) {
-                var px = x + Math.random()*width/10;
-                var py = y + Math.random()*height/10;
+        for(var x = 0; x < width; x = x + width/14) {
+            for(var y = 0; y < height; y = y + height/14) {
+                var px = x + Math.random()*width/14;
+                var py = y + Math.random()*height/14;
                 var p = {x: px, originX: px, y: py, originY: py };
                 points.push(p);
             }
@@ -63,7 +63,7 @@
 
         // assign a circle to each point
         for(var i in points) {
-            var c = new Circle(points[i], 2+Math.random()*4, 'rgba(215,58,49,1)');
+            var c = new Circle(points[i], 2+Math.random()*2, 'rgba(255,255,255,0.8');
             points[i].circle = c;
         }
     }
@@ -71,7 +71,7 @@
     // Event handling
     function addListeners() {
         if(!('ontouchstart' in window)) {
-            document.getElementById('section0').addEventListener('mousemove', mouseMove);
+            window.addEventListener('mousemove', mouseMove);
         }
         window.addEventListener('scroll', scrollCheck);
         window.addEventListener('resize', resize);
@@ -117,15 +117,18 @@
             ctx.clearRect(0,0,width,height);
             for(var i in points) {
                 // detect points in range
-                if(Math.abs(getDistance(target, points[i])) < 18000) {
-                    points[i].active = 0.7;
-                    points[i].circle.active = 0.9;
-                } else if(Math.abs(getDistance(target, points[i])) < 80000) {
-                    points[i].active = 0.5;
-                    points[i].circle.active = 0.6;
+                if(Math.abs(getDistance(target, points[i])) < 14000) {
+                    points[i].active = 0.3;
+                    points[i].circle.active = 1;
+                } else if(Math.abs(getDistance(target, points[i])) < 30000) {
+                    points[i].active = 0.1;
+                    points[i].circle.active = 0.5;
                 } else if(Math.abs(getDistance(target, points[i])) < 60000) {
-                    points[i].active = 0.2;
-                    points[i].circle.active = 0.4;
+                    points[i].active = 0.02;
+                    points[i].circle.active = 0.3;
+                 } else if(Math.abs(getDistance(target, points[i])) < 80000) {
+                    points[i].active = 0;
+                    points[i].circle.active = 0.2;
                 } else {
                     points[i].active = 0;
                     points[i].circle.active = 0;
@@ -139,8 +142,8 @@
     }
 
     function shiftPoint(p) {
-        TweenLite.to(p, 1+1*Math.random(), {x:p.originX-50+Math.random()*75,
-            y: p.originY-50+Math.random()*75, ease:Circ.easeInOut,
+        TweenLite.to(p, 1+1*Math.random(), {x:p.originX-50+Math.random()*100,
+            y: p.originY-50+Math.random()*100, ease:Circ.easeInOut,
             onComplete: function() {
                 shiftPoint(p);
             }});
@@ -153,7 +156,7 @@
             ctx.beginPath();
             ctx.moveTo(p.x, p.y);
             ctx.lineTo(p.closest[i].x, p.closest[i].y);
-            ctx.strokeStyle = 'rgba(8, 112, 138,'+ p.active+')';
+            ctx.strokeStyle = 'rgba(8,112,138,'+ p.active+')';
             ctx.stroke();
         }
     }

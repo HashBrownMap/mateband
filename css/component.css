@@ -815,7 +815,7 @@ body {
 	#header{
 		height:120px;
 		
-		background: white;
+		background: #fbfbfb;
 	}
 	
 
@@ -1334,7 +1334,7 @@ svg:not(:root) {
 	display: block;
 	min-width: 105px;
 	text-align: center;
-	color: #b5b5b5;
+	color: #D73A31;
 	-webkit-transition: color 0.3s;
 	transition: color 0.3s;
 }
@@ -1425,7 +1425,7 @@ svg:not(:root) {
 .menu--iris .menu__link {
 	position: relative;
 	text-align: center;
-	color: #b5b5b5;
+	color: #08708a;
 	-webkit-transition: color 0.3s;
 	transition: color 0.3s;
 }
