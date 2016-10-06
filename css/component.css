@@ -752,7 +752,7 @@ body {
 	border: none;
 	background: none;
 	z-index: 300;
-	padding-top: 4em;
+	padding-top: 1.5em;
 }
 
 .action:hover,
@@ -767,7 +767,7 @@ body {
 	top: 0;
 	left: 0;
 	padding: 1em;
-	padding-top: 7em;
+	padding-top: 2em;
 	opacity: 0;
 	-webkit-transition: opacity 0.3s, -webkit-transform 0.3s;
 	transition: opacity 0.3s, transform 0.3s;
@@ -813,6 +813,7 @@ body {
 	}
 
 	#header{
+		height:120px;
 		
 		background: white;
 	}
