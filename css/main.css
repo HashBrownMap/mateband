@@ -153,6 +153,10 @@ font-size: 240%;
 
 }
 
+#secondslide h5{
+    margin-right: 5em;
+}
+
 #section2 img{
     padding-right:  10em;
     padding-top: 5em;
@@ -313,6 +317,7 @@ a {
 
     .menu {
         right: 2% !important;
+        padding-top: 25px !important;
     }
 
     #header img{
@@ -351,6 +356,7 @@ a {
     font-size: 190%;
     padding-top: 1em;
      line-height: 1.2em;
+     margin-right: 0em;
     }
     #secondslide h2{
     font-size: 240%;
@@ -369,14 +375,14 @@ a {
         padding-top: 5em;
         margin-left: 10em;
         z-index: 10;
-        margin-right: 5em;
+        margin-right:6em;
 
     }
 
     #thirdslide img{ 
         max-height: 600px;
         padding-top: 3em;
-        padding-left: 2em;}
+        }
 
     #thirdslide h5{
     font-size: 190%;
