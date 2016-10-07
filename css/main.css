@@ -11,6 +11,29 @@ body{
     overflow: hidden; 
 } 
 
+#header{
+		position:fixed;
+		height:20px;
+		display:block;
+		width: 100%;
+		background: transparent;
+		z-index:9;
+		text-align:center;
+		color: #f2f2f2;
+		padding: 20px 0 0 0;
+	}
+
+#header img{
+    max-width: 100px;
+    max-height: 100px;
+    
+    margin-left: 120px;
+    float: left;
+}
+
+
+
+
 #section0{
 background-color: transparent;
     color: #193446;
@@ -21,7 +44,7 @@ background-color: transparent;
 
 #section0 h1{
     font-weight: 700;
-    padding-bottom: 0.5em;
+    padding-bottom: 0.7em;
     font-size: 0.5em;
     
     
@@ -115,6 +138,7 @@ font-size: 240%;
     padding-top: 1em;
     margin-right: 5em;
     font-size: 110%;
+    line-height: 1.2em;
 }
 #secondslide img{
     padding-right: 0;
@@ -283,8 +307,21 @@ a {
 
  
 @media only screen and (max-width : 990px) {
+    #header a{
+        font-size: 1.5em;
+    }
+
+    .menu {
+        right: 2% !important;
+    }
+
+    #header img{
+        margin-left: 40px;
+    }
     #section0 img {
-    max-width: 250px;}
+    max-width: 250px;
+    }
+
     #section0 h1{
     
         font-size:0.7em;
@@ -313,6 +350,7 @@ a {
     #secondslide h5{
     font-size: 190%;
     padding-top: 1em;
+     line-height: 1.2em;
     }
     #secondslide h2{
     font-size: 240%;
@@ -343,6 +381,7 @@ a {
     #thirdslide h5{
     font-size: 190%;
     padding-top: 1em;
+    line-height: 1.2em;
     }
     #thirdslide h2{
     font-size: 240%;
@@ -381,36 +420,20 @@ a {
         font-size: 130%;
         text-align:center;
         padding-bottom: 20px;
+        padding-top: 20px;
     }
 
     #rhodium h4{
     float:none;
-}
+    }
+
+    footer{
+        padding: 3em;
+    }
 
     footer img{
         float: none;
         margin: 0 auto;
     }
 }
-
-#header{
-		position:fixed;
-		height:20px;
-		display:block;
-		width: 100%;
-		background: transparent;
-		z-index:9;
-		text-align:center;
-		color: #f2f2f2;
-		padding: 20px 0 0 0;
-	}
-
-    #header img{
-        max-width: 100px;
-        max-height: 100px;
-        
-        margin-left: 120px;
-        float: left;
-    }
-
 

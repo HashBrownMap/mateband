@@ -613,6 +613,7 @@ body {
 .description--preview p {
 	font-size: 0.65em;
 	max-width: 100%;
+	line-height: 1.25em;
 	text-align: left;
 	margin: 1em 0;
 	margin-right: 2em;
@@ -792,7 +793,7 @@ body {
 
 @media screen and (min-width:1600px) {
 	.grid__item {
-		width: 550px !important;
+		width: 525px !important;
 		max-height: 400px;		
 	}
 }
@@ -1420,6 +1421,7 @@ svg:not(:root) {
 .menu--iris .menu__item {
 	position: relative;
 	margin: 0 0em;
+	font-size: 1.15em;
 }
 
 .menu--iris .menu__link {
