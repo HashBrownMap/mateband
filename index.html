@@ -63,11 +63,12 @@
 <div id="header">
 	<img src="images/m8.png" alt="">
 	<nav class="menu menu--iris">
+		<span class="link-copy"></span>
 		<ul class="menu__list">
-			<li class="menu__item"><a href="#firstPage" class="menu__link">Home</a></li>
-			<li class="menu__item"><a href="#secondPage" class="menu__link">Use case</a></li>
-			<li class="menu__item"><a href="#3rdPage" class="menu__link">Technologies</a></li>
-			<li class="menu__item"><a href="#5thpage" class="menu__link">Contact</a></li>
+			<li class="menu__item menu__item--current"><a href="#home" class="menu__link">Home</a></li>
+			<li class="menu__item" ><a href="#usecase" class="menu__link">Use case</a></li>
+			<li class="menu__item"><a href="#technologies" class="menu__link">Technologies</a></li>
+			<li class="menu__item" ><a href="#contact" class="menu__link">Contact</a></li>
 		
 		</ul>
 	</nav>
@@ -366,7 +367,7 @@
 	<script src="js/imagesloaded.pkgd.min.js"></script>
 	<script src="js/map.js"></script>
 	<script src="js/grid.js"></script>
-	<script src="js/clipboard.min.js"></script>
+	
 
 	<script>
 	/*	function load() {
@@ -385,7 +386,7 @@
 		$(document).ready(function() {
 			$('#fullpage').fullpage({
 				sectionsColor: ['#fbfbfb', '#fbfbfb', '#fbfbfb', '#fbfbfb', '#fbfbfb'],
-				anchors: ['firstPage', 'secondPage', '3rdPage', '4thpage', '5thpage'],
+				anchors: ['home', 'usecase', 'technologies', '4thpage', 'contact'],
 				menu: '#menu',
 				css3: true,
 				scrollingSpeed: 800,
@@ -462,6 +463,16 @@
 			});
 		})();
 	</script>
+	<script src="js/clipboard.min.js"></script>
+		<script>
+$(document).ready(
+  $(".menu__item").click('.menu__link',function(e){
+    $(".menu__item").removeClass("menu__item--current");
+    $(this).addClass("menu__item--current");
+  })
+);
+
+		</script>
 
 </body>
 </html>
