@@ -110,6 +110,9 @@ background-color: transparent;
     padding-bottom: 0.4em;
 }
 
+#section2{
+ z-index: 1;
+}
 
 
 #section2 h1{
