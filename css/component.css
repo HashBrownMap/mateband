@@ -613,6 +613,7 @@ body {
 .description--preview p {
 	font-size: 0.65em;
 	max-width: 100%;
+	line-height: 1.25em;
 	text-align: left;
 	margin: 1em 0;
 	margin-right: 2em;
@@ -792,7 +793,7 @@ body {
 
 @media screen and (min-width:1600px) {
 	.grid__item {
-		width: 550px !important;
+		width: 525px !important;
 		max-height: 400px;		
 	}
 }
@@ -1323,10 +1324,11 @@ svg:not(:root) {
 }
 
 
+
 /* Valentine */
 .menu--valentine .menu__item {
 	position: relative;
-	margin: 0 2em;
+	margin: 0 1em;
 }
 
 .menu--valentine .menu__link {
@@ -1334,7 +1336,7 @@ svg:not(:root) {
 	display: block;
 	min-width: 105px;
 	text-align: center;
-	color: #D73A31;
+	color: #b5b5b5;
 	-webkit-transition: color 0.3s;
 	transition: color 0.3s;
 }
@@ -1418,8 +1420,7 @@ svg:not(:root) {
 
 /* Iris */
 .menu--iris .menu__item {
-	position: relative;
-	margin: 0 0em;
+	margin: 0 1em;
 }
 
 .menu--iris .menu__link {
@@ -1433,7 +1434,6 @@ svg:not(:root) {
 .menu--iris .menu__link:hover,
 .menu--iris .menu__link:focus {
 	color: #D73A31;
-
 }
 
 .menu--iris .menu__item--current .menu__link {
@@ -1470,8 +1470,8 @@ svg:not(:root) {
 	transform: translate3d(-10px, -10px, 0);
 }
 
-.menu--iris .menu__item .menu__link::before,
-.menu--iris .menu__itemt .menu__link::after {
+.menu--iris .menu__item--current .menu__link::before,
+.menu--iris .menu__item--current .menu__link::after {
 	opacity: 1;
 	-webkit-transform: translate3d(0, 0, 0);
 	transform: translate3d(0, 0, 0);
