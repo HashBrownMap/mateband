@@ -446,3 +446,11 @@ a {
     }
 }
 
+.intro a.form{
+    margin-top: 2em;
+    font-size: 1.8em;
+}
+
+.intro h1{
+    padding-bottom: 0.7em;
+}
